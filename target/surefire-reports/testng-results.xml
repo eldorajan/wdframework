@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Test Suite is going to start]]>
+    </line>
+    <line>
+      <![CDATA[Starting Chrome browser in local configuration]]>
+    </line>
+    <line>
+      <![CDATA[Started Chrome browser in local configuration]]>
+    </line>
+    <line>
+      <![CDATA[Started the test case:TestGoogle]]>
+    </line>
+    <line>
+      <![CDATA[Completed the test case:TestGoogle]]>
+    </line>
+    <line>
+      <![CDATA[Closing the browser session after the method gets executed in progress]]>
+    </line>
+    <line>
+      <![CDATA[Closed the browser session after the method gets executed]]>
+    </line>
+  </reporter-output>
+  <suite name="Smoke Test" duration-ms="14975" started-at="2015-05-19T04:05:13Z" finished-at="2015-05-19T04:05:28Z">
+    <groups>
+    </groups>
+    <test name="Sample Tests" duration-ms="14975" started-at="2015-05-19T04:05:13Z" finished-at="2015-05-19T04:05:28Z">
+      <class name="wdframework.tests.SampleTest">
+        <test-method status="PASS" signature="startBrowser(org.testng.ITestContext)[pri:0, instance:wdframework.tests.SampleTest@65642eab]" name="startBrowser" is-config="true" duration-ms="6426" started-at="2015-05-19T09:35:13Z" finished-at="2015-05-19T09:35:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@33c11fcb]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Starting Chrome browser in local configuration]]>
+            </line>
+            <line>
+              <![CDATA[Started Chrome browser in local configuration]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method status="PASS" signature="TestGoogle()[pri:0, instance:wdframework.tests.SampleTest@65642eab]" name="TestGoogle" duration-ms="7205" started-at="2015-05-19T09:35:19Z" finished-at="2015-05-19T09:35:26Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Completed the test case:TestGoogle]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TestGoogle -->
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:wdframework.tests.SampleTest@65642eab]" name="stopBrowser" is-config="true" duration-ms="1328" started-at="2015-05-19T09:35:26Z" finished-at="2015-05-19T09:35:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Closing the browser session after the method gets executed in progress]]>
+            </line>
+            <line>
+              <![CDATA[Closed the browser session after the method gets executed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- stopBrowser -->
+      </class> <!-- wdframework.tests.SampleTest -->
+    </test> <!-- Sample Tests -->
+  </suite> <!-- Smoke Test -->
+</testng-results>

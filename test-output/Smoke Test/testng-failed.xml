@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Smoke Test]">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="baseurl" value="http://www.google.com/"/>
+  <parameter name="mode" value="local"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="wdframework.listeners.SuiteListener"/>
+    <listener class-name="wdframework.listeners.MethodListener"/>
+    <listener class-name="wdframework.listeners.ScreenShotListener"/>
+  </listeners>
+  <test name="Sample Tests(failed)">
+    <classes>
+      <class name="wdframework.tests.SampleTest">
+        <methods>
+          <include name="startBrowser"/>
+          <include name="stopBrowser"/>
+          <include name="TestGoogle"/>
+        </methods>
+      </class> <!-- wdframework.tests.SampleTest -->
+    </classes>
+  </test> <!-- Sample Tests(failed) -->
+</suite> <!-- Failed suite [Smoke Test] -->

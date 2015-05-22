@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke Test">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="wdframework.listeners.SuiteListener" />
+		<listener class-name="wdframework.listeners.MethodListener" />
+		<listener class-name="wdframework.listeners.ScreenShotListener" />
+	</listeners>
+
+	<parameter name="browser" value="chrome" />
+	<parameter name="mode" value="local" />
+	<parameter name="baseurl" value="http://www.google.com/" />
+
+	<test name="Sample Tests">
+		<classes>
+			<class name="wdframework.tests.SampleTest">
+				<methods>
+					<include name="TestGoogle"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

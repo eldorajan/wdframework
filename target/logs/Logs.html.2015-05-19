@@ -1,0 +1,3241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 09:35:12 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>234</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>4362</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>6645</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>13850</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>13850</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>15178</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>15225</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 15s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 09:54:29 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>189</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>3868</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>6625</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>13937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>13937</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>15319</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>15424</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 15s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 10:33:38 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>251</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>3955</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>7929</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>8000</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>9916</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>10130</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 10s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 10:36:21 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>189</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>3908</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>7322</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>7375</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>8725</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>8908</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 8s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 10:36:58 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>235</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>3939</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>6818</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>6907</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>8248</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>8379</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 8s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 11:55:53 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>188</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>3852</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in local configuration</td>
+</tr>
+
+<tr>
+<td>6358</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>11636</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>11636</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>13418</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>13499</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 13s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 11:56:41 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>236</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>267</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>298</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4719</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5694</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>7825</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>10548</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>10859</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>12217</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>16669</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>16669</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>17014</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>17029</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>17889</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>17889</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>18233</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>18233</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>18405</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>18405</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>19280</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>19280</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>22773</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>23338</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>23976</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>27128</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>27368</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>27570</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>32820</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>32820</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>33354</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>33354</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>33385</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>33385</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>34370</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>34370</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>34699</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>34902</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>37077</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>39625</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>45149</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>45149</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>46478</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>46572</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 46s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 12:28:22 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>231</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>247</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>278</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4070</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4345</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5926</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>8535</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>8592</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>9065</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>9071</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>9801</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>9804</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>10000</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>10003</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>10843</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>10843</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>11268</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>11268</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>13137</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>14734</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>15477</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>19804</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>19810</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>20875</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>20885</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>21207</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>21210</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>21465</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>21467</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>22428</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>22788</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>24456</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>27102</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>27102</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>28416</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>28542</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 28s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 12:38:09 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>235</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>266</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>329</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>3717</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>3964</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5509</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>7519</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>7542</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>8849</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>8863</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>8960</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>8960</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>9587</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>9587</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>10212</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>10212</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>10324</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>10324</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>15122</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>15342</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>15414</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>19797</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>19800</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>20081</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>20089</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>20477</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>20480</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>21426</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>21426</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>21490</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>21740</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>25394</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>27799</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>27801</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>29134</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>29246</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 29s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 12:47:51 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>220</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>282</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>298</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4374</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4831</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5645</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>8097</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>8163</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>9881</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>9884</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>10826</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>10853</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>11154</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>11169</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>12513</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>12513</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>12675</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>12678</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>14361</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>15286</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>17710</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>20225</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>20242</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>20848</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>20868</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>21772</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>21776</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>22383</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>22670</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>22685</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>24102</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>25392</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>28226</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>28251</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>29663</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>30071</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 30s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 12:54:10 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>213</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>244</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>244</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4004</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4094</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5555</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>7602</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>8211</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>9687</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>13427</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>13427</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>14394</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>14394</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>14925</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>14925</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>15397</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>15397</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>15803</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>15803</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>16834</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>16834</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>19094</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>19306</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>20371</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>23945</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>24041</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>25333</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>29872</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>29872</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>29919</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>29919</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>30989</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>30989</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>31334</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>31334</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>31365</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>32365</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>34120</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>36721</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>42194</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>42194</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>43570</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>43649</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 43s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 12:55:02 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>298</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>345</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>361</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4280</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5252</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5514</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>8757</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>8915</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>9344</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>46735</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>46735</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>46735</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>48401</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>48401</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>48401</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>48401</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>48452</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>48467</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>52891</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>52896</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>52929</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>56135</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>56355</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>56432</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>92244</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>92527</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>92855</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>93870</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>93870</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>93934</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>94137</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>96903</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>99367</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>135038</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>136383</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>136587</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 136s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 14:34:38 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>220</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>267</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>298</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>4839</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5902</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>6554</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>9450</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>9544</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>11015</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>15209</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>15209</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>15960</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>15975</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>16460</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>16460</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>17148</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>17148</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>17320</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>17320</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>17804</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>17804</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>22378</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>22477</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>22537</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>25545</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>26970</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>27185</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>31907</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>31907</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>32502</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>32502</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>32815</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>32815</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>33315</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>33315</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>33909</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>34112</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>36193</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>38885</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>44446</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Completed the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>44446</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>45822</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>45885</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 45s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue May 19 17:14:02 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite is going to start</td>
+</tr>
+
+<tr>
+<td>297</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>344</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>375</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5443</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5995</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>5998</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>9424</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle2</td>
+</tr>
+
+<tr>
+<td>9555</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>9865</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle3</td>
+</tr>
+
+<tr>
+<td>9931</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>10420</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle</td>
+</tr>
+
+<tr>
+<td>10510</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>10888</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>10888</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>11888</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>11888</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>11920</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>11920</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>16383</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>16672</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>16705</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>20266</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle5</td>
+</tr>
+
+<tr>
+<td>20543</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>20822</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle6</td>
+</tr>
+
+<tr>
+<td>20924</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>21233</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle4</td>
+</tr>
+
+<tr>
+<td>21292</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>22074</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>22074</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Starting Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>22277</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>22574</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>24974</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.driver.Driver category">wdframework.driver.Driver</td>
+<td title="Message">Started Chrome browser in remote configuration</td>
+</tr>
+
+<tr>
+<td>27395</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.MethodListener category">wdframework.listeners.MethodListener</td>
+<td title="Message">Started the test case:TestGoogle7</td>
+</tr>
+
+<tr>
+<td>27458</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closing the browser session after the method gets executed in progress</td>
+</tr>
+
+<tr>
+<td>28794</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="wdframework.common.DriverRunner category">wdframework.common.DriverRunner</td>
+<td title="Message">Closed the browser session after the method gets executed</td>
+</tr>
+
+<tr>
+<td>29240</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="wdframework.listeners.SuiteListener category">wdframework.listeners.SuiteListener</td>
+<td title="Message">Test Suite has completed, took around 29s</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Fri May 22 08:49:02 IST 2015<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>

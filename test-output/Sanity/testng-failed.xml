@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="Failed suite [Sanity]" parallel="methods">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="baseurl" value="http://www.google.com/"/>
+  <parameter name="mode" value="grid"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="wdframework.listeners.SuiteListener"/>
+    <listener class-name="wdframework.listeners.MethodListener"/>
+    <listener class-name="wdframework.listeners.ScreenShotListener"/>
+  </listeners>
+  <test name="Sample Tests on Grid(failed)" parallel="methods">
+    <classes>
+      <class name="wdframework.tests.SampleTest">
+        <methods>
+          <include name="startBrowser"/>
+          <include name="stopBrowser"/>
+          <include name="TestGoogle6"/>
+          <include name="TestGoogle3"/>
+          <include name="TestGoogle5"/>
+          <include name="TestGoogle"/>
+          <include name="TestGoogle7"/>
+          <include name="TestGoogle2"/>
+          <include name="TestGoogle4"/>
+        </methods>
+      </class> <!-- wdframework.tests.SampleTest -->
+    </classes>
+  </test> <!-- Sample Tests on Grid(failed) -->
+</suite> <!-- Failed suite [Sanity] -->
