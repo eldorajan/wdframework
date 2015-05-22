@@ -57,3 +57,24 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+test-output/
+target/
+build/
+bin/
+*.jar
+.project
+.classpath
+chromedriver.log
+.idea/
+.settings/
+velocity.log
+seleniumtestsframework.iml
+phantomjs.log
