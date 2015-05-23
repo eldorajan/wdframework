@@ -19,6 +19,9 @@ public class CheckBox extends Element{
 		super(driver, by);
 	}
 
+	public CheckBox(WebDriver driver, String locator) {
+		super(driver, locator);
+	}
 
 	public void check() {
 		this.click();

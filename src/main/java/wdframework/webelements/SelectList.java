@@ -18,6 +18,10 @@ public class SelectList extends Element{
 	public SelectList(WebDriver driver, By by) {
 		super(driver, by);
 	}
+	
+	public SelectList(WebDriver driver, String locator) {
+		super(driver, locator);
+	}
 
 	public void selectItem(String sItem) {
 		selectDropDown(sItem);	

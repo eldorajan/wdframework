@@ -25,6 +25,7 @@ public class PriorityListener implements IMethodInterceptor {
 		Comparator<IMethodInstance> comparator = new
 				Comparator<IMethodInstance>() {
 
+			@SuppressWarnings("deprecation")
 			private int getPriority(IMethodInstance mi) {
 				int result = 0;
 				Method method = mi.getMethod().getMethod();

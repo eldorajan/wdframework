@@ -1,4 +1,4 @@
-package wdframework.onedrive.constants;
+package wdframework.constants.onedrive;
 
 
 /**
@@ -18,6 +18,7 @@ public class OneDriveConstants  {
 	public static String ExcelSurvey="Excel survey";
 	public static String PlainText="Plain text document";
 	public static String Delete="Delete";
+	public static String Files="Files";
 	public static String DeleteFolder="Delete folder";
 	public static String Properties="Properties";
 	public static String Rename="Rename";
@@ -29,5 +30,10 @@ public class OneDriveConstants  {
 	public static String OneNoteFileType="onenote";	
 	public static String ExcelSurveyFileType="excel";
 	public static String PlainTextFileType="text";
+	public static String Upload="Upload";
+	public static String Download="Download";
+	public static String Manage="Manage";
+	public static String Create="Create";
+	public static String FolderActions="Folder actions";
 
 }

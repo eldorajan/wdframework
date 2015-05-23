@@ -14,7 +14,8 @@ import org.testng.annotations.ITestAnnotation;
  */
 public class RetryListener implements IAnnotationTransformer {
 
-	public void transform(ITestAnnotation arg0, @SuppressWarnings("rawtypes") Class arg1, Constructor arg2,
+	@SuppressWarnings("rawtypes")
+	public void transform(ITestAnnotation arg0, Class arg1, Constructor arg2,
 			Method arg3) {
 
 		IRetryAnalyzer retry = arg0.getRetryAnalyzer();

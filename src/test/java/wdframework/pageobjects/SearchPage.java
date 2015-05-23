@@ -1,8 +1,9 @@
 package wdframework.pageobjects;
 
 import org.openqa.selenium.WebDriver;
+
 import wdframework.webelements.BasePage;
-import wdframework.webelements.Element;
+import wdframework.webelements.HyperLink;
 import wdframework.webelements.TextBox;
 
 /**
@@ -15,10 +16,10 @@ public class SearchPage extends BasePage{
 	
 
 	public TextBox searchElement(WebDriver driver){
-		return new TextBox(driver,getBy(getClassName(),Thread.currentThread().getStackTrace()[1].getMethodName()));
+		return new TextBox(driver,getLocator());
 	}
 	
-	public Element searchLogo(WebDriver driver){
-		return new Element(driver,getBy(getClassName(),Thread.currentThread().getStackTrace()[1].getMethodName()));
+	public HyperLink searchLogo(WebDriver driver){
+		return new HyperLink(driver,getLocator());
 	}
 }

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import wd.common.CommonTest;
 import wdframework.listeners.Priority;
-import wdframework.onedrive.constants.OneDriveConstants;
+import wdframework.constants.onedrive.OneDriveConstants;
 
 /**
  * Onedrive Test Suite
@@ -167,5 +167,25 @@ public class OneDriveTests extends CommonTest{
 	public void deletePlainTextFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
 		onedrive.deleteFile(getWebDriver(), OneDriveConstants.PlainText, OneDriveConstants.PlainTextFileType, plaintextFileName);		
+	}
+	
+	/**
+	 * Upload file
+	 */
+	@Priority(16)
+	@Test(groups = { "sanity" })
+	public void uploadFile() {
+		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
+		onedrive.uploadFile(getWebDriver(), "Test.docx");		
+	}
+	
+	/**
+	 * Download file
+	 */
+	@Priority(17)
+	@Test(groups = { "sanity" })
+	public void downloadFile() {
+		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
+		onedrive.downloadFile(getWebDriver(), "Test");			
 	}
 }

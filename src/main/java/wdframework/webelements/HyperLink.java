@@ -19,6 +19,8 @@ public class HyperLink extends Element {
 		super(driver, by);
 	}
 
-	
+	public HyperLink(WebDriver driver, String locator) {
+		super(driver, locator);
+	}
 
 }

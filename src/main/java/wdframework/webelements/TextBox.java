@@ -18,6 +18,10 @@ public class TextBox extends Element {
 	public TextBox(WebDriver driver, By by) {
 		super(driver, by);
 	}
+	
+	public TextBox(WebDriver driver, String locator) {
+		super(driver, locator);
+	}
 
 	public void clear() {
 		element.clear();

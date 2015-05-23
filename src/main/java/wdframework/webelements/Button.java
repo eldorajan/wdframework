@@ -19,6 +19,8 @@ public class Button extends Element {
 		super(driver, by);
 	}
 
-	
+	public Button(WebDriver driver, String locator) {
+		super(driver, locator);
+	}
 
 }

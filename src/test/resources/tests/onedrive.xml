@@ -13,12 +13,12 @@
 
 	<parameter name="browser" value="chrome" />
 	<parameter name="mode" value="local" />
-	<!-- <parameter name="baseurl" value="http://www.google.com/" />
- -->
+	<!-- <parameter name="baseurl" value="http://www.google.com/" /> -->
+	
 	<test name="One Drive Tests">
 	<groups>
 			<run>
-				<include name="sanityX"></include>
+				<include name="sanity"></include>
 			</run>
 		</groups>
 		<classes>

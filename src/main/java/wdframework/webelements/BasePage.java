@@ -20,16 +20,26 @@ public abstract class BasePage {
 	private String LOCATOR_CONFIG_PROPERTIES = "locators/FILENAME.properties";
 	Properties properties = new Properties();
 	
-
+	/**
+	 * Enum for locator types
+	 * @author erajan
+	 *
+	 */
 	public enum LocatorType {
 		CSS, XPATH, ID, NAME, CLASS, DOM, LINK, LINKP
 	}
 	
 	
-	
-	public By getBy(String page,String elementName) {
+	/**
+	 * get BY
+	 * @return
+	 */
+	public By getBy() {
+		StackTraceElement[] elements = new Throwable().getStackTrace();
+		String page = elements[1].getClassName().replace("wdframework.pageobjects.", "");
+		String elementName = elements[1].getMethodName();
 		Properties properties = new Properties();
-		properties = loadPropertiesFile(page);		
+		properties = loadPropertiesFile(page.toLowerCase());		
 		String locator = properties.getProperty(elementName.toLowerCase());
 		LocatorType identifier = LocatorType.valueOf(locator.toUpperCase().substring(0, locator.indexOf("=")));
 		locator = locator.substring(locator.indexOf("=")+1);
@@ -64,6 +74,11 @@ public abstract class BasePage {
 		return locatorIdentifiedBy;
 	}
 	
+	/**
+	 * get BY by locator
+	 * @param locator
+	 * @return
+	 */
 	public By getBy(String locator) {
 		LocatorType identifier = LocatorType.valueOf(locator.toUpperCase().substring(0, locator.indexOf("=")));
 		locator = locator.substring(locator.indexOf("=")+1);
@@ -98,14 +113,26 @@ public abstract class BasePage {
 		return locatorIdentifiedBy;
 	}
 	
-	public String getLocator(String page,String elementName) {
+	/**
+	 * get locator
+	 * @return
+	 */
+	public String getLocator() {
+		StackTraceElement[] elements = new Throwable().getStackTrace();
+		String page = elements[1].getClassName().replace("wdframework.pageobjects.", "");
+		String elementName = elements[1].getMethodName();
 		Properties properties = new Properties();
-		properties = loadPropertiesFile(page);		
+		properties = loadPropertiesFile(page.toLowerCase());		
 		String locator = properties.getProperty(elementName.toLowerCase());
 		
 		return locator;
 	}
 	
+	/**
+	 * load properties file
+	 * @param page
+	 * @return
+	 */
 	private Properties loadPropertiesFile(String page) {
 		Properties result = new Properties();
 		try {
@@ -134,15 +161,31 @@ public abstract class BasePage {
 		}
 		return result;
 	}
-
+	
+	/**
+	 * get property or null
+	 * @param name
+	 * @return
+	 */
 	public String getPropertyOrNull(String name) {
 		return getProperty(name, false);
 	}
 
+	/**
+	 * get property or throws exception
+	 * @param name
+	 * @return
+	 */
 	public String getPropertyOrThrowException(String name) {
 		return getProperty(name, true);
 	}
 
+	/**
+	 * get property
+	 * @param name
+	 * @param forceExceptionIfNotDefined
+	 * @return
+	 */
 	private String getProperty(String name, boolean forceExceptionIfNotDefined) {
 		String result;
 		if ((result = System.getProperty(name, null)) != null && result.length() > 0) {
@@ -160,6 +203,11 @@ public abstract class BasePage {
 		return result;
 	}
 
+	/**
+	 * get property from properties file
+	 * @param name
+	 * @return
+	 */
 	private String getPropertyFromPropertiesFile(String name) {
 		Object result = properties.get(name);
 		if (result == null) {
@@ -169,8 +217,22 @@ public abstract class BasePage {
 		}
 	}
 
+	/**
+	 * get class name
+	 * @return
+	 */
 	public String getClassName() {
-		return getClass().getName().replace("wdframework.pageobjects.", "");
+		StackTraceElement[] elements = new Throwable().getStackTrace();
+		return elements[1].getClassName().replace("wdframework.pageobjects.", "");
+	}
+	
+	/**
+	 * get method name
+	 * @return
+	 */
+	public String getMethodName() {
+		StackTraceElement[] elements = new Throwable().getStackTrace();
+		return elements[1].getMethodName();
 	}
 
 	

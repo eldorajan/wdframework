@@ -19,6 +19,10 @@ public class RadioButton extends Element {
 		super(driver, by);
 	}
 	
+	public RadioButton(WebDriver driver, String locator) {
+		super(driver, locator);
+	}
+	
 	public void select() {
 		this.click();
 	}

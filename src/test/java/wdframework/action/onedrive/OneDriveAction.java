@@ -1,18 +1,22 @@
 package wdframework.action.onedrive;
 
+import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
-import wdframework.onedrive.constants.OneDriveConstants;
+import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
 import wdframework.pageobjects.OneDrivePage;
 import wdframework.webelements.CheckBox;
@@ -122,7 +126,7 @@ public class OneDriveAction{
 		try {
 			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
-			selectQuickHeaders(driver, "Files");
+			selectQuickHeaders(driver, OneDriveConstants.Files);
 
 			int countBefore = getFolderCount(driver);			
 			odp.createbutton(driver).click();
@@ -156,15 +160,15 @@ public class OneDriveAction{
 		try {
 			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
-			selectQuickHeaders(driver, "Files");
+			selectQuickHeaders(driver, OneDriveConstants.Files);
 
 			int countBefore = getFolderCount(driver);			
 			hoverOverFolderName(driver, folderName);
 			selectInputBoxFolderName(driver, folderName);
 			if(driver instanceof FirefoxDriver){
-				clickCreateManageButton(driver, "Folder actions");
+				clickCreateManageButton(driver, OneDriveConstants.FolderActions);
 			}else{
-				clickCreateManageButton(driver, "Manage");
+				clickCreateManageButton(driver, OneDriveConstants.Manage);
 			}			
 			clickCreateItemType(driver, manageType);
 
@@ -192,13 +196,13 @@ public class OneDriveAction{
 		try {
 			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
-			selectQuickHeaders(driver, "Files");
+			selectQuickHeaders(driver, OneDriveConstants.Files);
 
 			int countBefore = getFileCount(driver,itemType);	
 			String[] fileNamesBefore = getAllFileNames(driver,itemType);
 			String winHandleBefore =  driver.getWindowHandle();
 			
-			clickCreateManageButton(driver, "Create");		
+			clickCreateManageButton(driver, OneDriveConstants.Create);		
 			clickCreateItemType(driver, fileType);
 			
 			FileType ft = getFileType(fileType);
@@ -272,14 +276,14 @@ public class OneDriveAction{
 		try {
 			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
-			selectQuickHeaders(driver, "Files");
+			selectQuickHeaders(driver, OneDriveConstants.Files);
 
 			int countBefore = getFileCount(driver,itemType);	
 			String[] fileNamesBefore = getAllFileNames(driver,itemType);
 			String winHandleBefore =  driver.getWindowHandle();			
 			hoverOverFileName(driver,itemType,fileName);
 			selectInputBoxFileName(driver,fileName);
-			clickCreateManageButton(driver, "Manage");
+			clickCreateManageButton(driver, OneDriveConstants.Manage);
 			clickCreateItemType(driver, OneDriveConstants.Delete);
 			clickErrorPanelDeleteButton(driver);
 
@@ -293,6 +297,78 @@ public class OneDriveAction{
 
 
 	}
+	
+	/**
+	 * Upload file
+	 * @param driver
+	 * @param fileName
+	 */
+	public void uploadFile(WebDriver driver, String fileName) {
+		try {
+			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+
+			selectQuickHeaders(driver, OneDriveConstants.Files);
+
+			int countBefore = getFileCount(driver);	
+			String[] fileNamesBefore = getAllFileNames(driver);
+			
+			
+			if(driver instanceof FirefoxDriver){
+				clickCreateManageButton(driver, OneDriveConstants.Upload);
+				clickUploadItemType(driver, OneDriveConstants.Upload);
+				autoitFileUploadFirefox(fileName);
+			}else{
+				clickCreateManageButton(driver, OneDriveConstants.Upload);
+				clickUploadItemType(driver, OneDriveConstants.Files);
+				autoitFileUploadChrome(fileName);
+			}
+			driver.navigate().refresh();
+			Thread.sleep(10000);			
+
+			int countAfter = getFileCount(driver);				
+			Assert.assertTrue(countAfter==countBefore+1,"File upload failed as file "+fileName+" is not uploaded");
+			String[] fileNamesAfter = getAllFileNames(driver);	
+			String newFileName = arrayDifference(fileNamesAfter, fileNamesBefore);	
+			
+			Assert.assertTrue(fileName.contains(newFileName),"File upload failed as file "+fileName+" is not uploaded");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+	}
+	
+	/**
+	 * Upload file
+	 * @param driver
+	 * @param fileName
+	 */
+	public void downloadFile(WebDriver driver, String fileName) {
+		try {
+			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+
+			selectQuickHeaders(driver, OneDriveConstants.Files);
+
+			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
+			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
+			int fileCountBefore = dir.listFiles(fileFilter).length;
+			
+			hoverOverFileName(driver,fileName);
+			selectInputBoxFileName(driver,fileName);
+			clickManageLinks(driver, OneDriveConstants.Download);
+			
+			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
+			fileFilter = new WildcardFileFilter("Test*.docx");
+			int fileCountAfter = dir.listFiles(fileFilter).length;			
+			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 
 	/**
 	 * Forced delete if file is opened for editing
@@ -304,7 +380,7 @@ public class OneDriveAction{
 		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
 		if(odp.errorpaneldeletebutton(driver).isElementVisible()){
-			if(odp.errorpaneldeletebutton(driver).getText().equalsIgnoreCase("Delete")){
+			if(odp.errorpaneldeletebutton(driver).getText().equalsIgnoreCase(OneDriveConstants.Delete)){
 				odp.errorpaneldeletebutton(driver).click();
 				Thread.sleep(10000);
 			}				
@@ -330,6 +406,29 @@ public class OneDriveAction{
 		}
 	}
 
+	
+	/**
+	 * Click on upload link
+	 * @param driver
+	 * @param itemType
+	 * @throws InterruptedException
+	 */
+	private void clickUploadItemType(WebDriver driver, String itemType) throws InterruptedException {
+		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+
+		List<Element> uploaddropdown  = odp.uploaddropdown(driver).getChildElements();		
+		for(int i=0;i<uploaddropdown.size();i++){
+			if(uploaddropdown.get(i).getText().trim().contains(itemType)){
+				uploaddropdown.get(i).mouseOver(driver);
+				uploaddropdown.get(i).mouseOverClick(driver);
+				uploaddropdown.get(i).click();
+				Thread.sleep(10000);
+				break;
+			}
+		}
+	}
+
+	
 	/**
 	 * Select quick headers in the side bar
 	 * @param driver
@@ -602,9 +701,28 @@ public class OneDriveAction{
 			e.printStackTrace();
 		}	
 	}
+	
+	/**
+	 * Click on create/manage button
+	 * @param driver
+	 * @param createType
+	 * @throws InterruptedException
+	 */
+	private void clickManageLinks(WebDriver driver, String createType) throws InterruptedException {
+		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+
+		List<Element> managelinks  = odp.managelinks(driver).getChildElements();		
+		for(int i=0;i<managelinks.size();i++){
+			if(managelinks.get(i).getText().trim().contains(createType)){
+				managelinks.get(i).click();
+				Thread.sleep(10000);
+				break;
+			}
+		}
+	}
 
 	/**
-	 * get arrya difference as arrays
+	 * get array difference as arrays
 	 * @param first
 	 * @param second
 	 * @return
@@ -686,4 +804,47 @@ public class OneDriveAction{
 		}
 		
 	}
+	
+	/**
+	 * autoit file upload chrome
+	 * @param fileName
+	 */
+	public void autoitFileUploadChrome(String fileName){
+		
+		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
+		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
+		File exeLocation 	= new File("src/test/resources/utils/fileuploadchrome.exe");
+		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
+		try {
+			new ProcessBuilder(exeAbsolutePath,
+					absolutePath, "Open").start();
+			Thread.sleep(10000);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+	
+	/**
+	 * autoit file upload firefox
+	 * @param fileName
+	 */
+	public void autoitFileUploadFirefox(String fileName){
+		
+		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
+		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
+		File exeLocation 	= new File("src/test/resources/utils/fileuploadfirefox.exe");
+		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
+		try {
+			new ProcessBuilder(exeAbsolutePath,
+					absolutePath, "Open").start();
+			Thread.sleep(10000);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+	
 }

@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import wdframework.webelements.BasePage.LocatorType;
+
 /**
  * Base Element
  * @author erajan
@@ -25,6 +27,10 @@ public class Element implements WebElement {
 	
 	public Element(WebDriver driver,By by){
 		this.element = driver.findElement(by);
+	}
+	
+	public Element(WebDriver driver,String locator){
+		this.element = driver.findElement(getBy(locator));
 	}
 
 	public WebElement getElement() {
@@ -192,6 +198,40 @@ public class Element implements WebElement {
 	public void mouseOverClick(WebDriver driver){
 		Actions action = new Actions(driver);		 
         action.moveToElement(element).click().build().perform();
+	}
+	
+	public By getBy(String locator) {
+		LocatorType identifier = LocatorType.valueOf(locator.toUpperCase().substring(0, locator.indexOf("=")));
+		locator = locator.substring(locator.indexOf("=")+1);
+
+		By locatorIdentifiedBy=null;
+		switch (identifier) {
+		case XPATH:
+			locatorIdentifiedBy = By.xpath(locator);
+			break;
+		case CSS:
+			locatorIdentifiedBy = By.cssSelector(locator);
+			break;
+		case ID:
+			locatorIdentifiedBy = By.id(locator);
+			break;
+		case NAME:
+			locatorIdentifiedBy = By.name(locator);
+			break;
+		case CLASS:
+			locatorIdentifiedBy = By.className(locator);
+			break;
+		case LINK:
+			locatorIdentifiedBy = By.linkText(locator);
+			break;
+		case LINKP:
+			locatorIdentifiedBy = By.partialLinkText(locator);
+			break;
+		default:
+			locatorIdentifiedBy = By.cssSelector(locator);
+			break;
+		}
+		return locatorIdentifiedBy;
 	}
 	
 }

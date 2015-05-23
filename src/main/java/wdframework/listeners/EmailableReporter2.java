@@ -48,13 +48,14 @@ public class EmailableReporter2 implements IReporter {
 
 	private int m_methodIndex;
 
-	private int m_rowTotal;
+	
 
 	// ~ Methods --------------------------------------------------------------
 
 	/**
 	 * Creates summary of the run
 	 */
+	@SuppressWarnings("unused")
 	public void generateReport(List<XmlSuite> xml, List<ISuite> suites, String outdir) {
 		try {
 			m_out = createWriter(outdir);
@@ -76,7 +77,7 @@ public class EmailableReporter2 implements IReporter {
 			}
 			Map<String, ISuiteResult> tests = suite.getResults();
 
-			for (ISuiteResult r : tests.values()) {
+			for ( ISuiteResult r : tests.values()) {
 				//System.out.println(r);
 			}
 		}
@@ -219,6 +220,7 @@ public class EmailableReporter2 implements IReporter {
 		return "<b>" + method.getMethodName() + "</b> " + addon;
 	}
 
+	@SuppressWarnings("unused")
 	private void resultDetail(IResultMap tests, final String style) {
 		if (tests.getAllResults().size() > 0) {
 			int row = 0;
@@ -325,6 +327,7 @@ public class EmailableReporter2 implements IReporter {
 	 * @param tests
 	 * @return
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private Collection<ITestNGMethod> getMethodSet(IResultMap tests) {
 		Set r = new TreeSet<ITestNGMethod>(new TestSorter<ITestNGMethod>());
 		r.addAll(tests.getAllMethods());
@@ -414,7 +417,6 @@ public class EmailableReporter2 implements IReporter {
 
 	private void summaryCell(int v,int maxexpected) {
 		summaryCell(String.valueOf(v),v<=maxexpected);
-		m_rowTotal += v;
 	}
 
 	/**
@@ -481,10 +483,12 @@ public class EmailableReporter2 implements IReporter {
 
 	// ~ Inner Classes --------------------------------------------------------
 	/** Arranges methods by classname and method name */
+	@SuppressWarnings("rawtypes")
 	private class TestSorter<T extends ITestNGMethod> implements Comparator {
 		// ~ Methods -------------------------------------------------------------
 
 		/** Arranges methods by classname and method name */
+		@SuppressWarnings("unchecked")
 		public int compare(Object o1, Object o2) {
 			int r = ((T) o1).getTestClass().getName().compareTo(((T) o2).getTestClass().getName());
 			if (r == 0) {

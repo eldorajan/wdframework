@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import wdframework.webelements.BasePage.LocatorType;
+
 /**
  * Element List
  * @author erajan
@@ -23,6 +25,10 @@ public class ElementList <T extends Element>{
 	
 	public ElementList(WebDriver driver,By by){
 		this.elementList = driver.findElements(by);
+	}
+	
+	public ElementList(WebDriver driver, String locator) {
+		this.elementList = driver.findElements(getBy(locator));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -47,5 +53,37 @@ public class ElementList <T extends Element>{
 		this.elementList = elementList;
 	}
 
-	
+	public By getBy(String locator) {
+		LocatorType identifier = LocatorType.valueOf(locator.toUpperCase().substring(0, locator.indexOf("=")));
+		locator = locator.substring(locator.indexOf("=")+1);
+
+		By locatorIdentifiedBy=null;
+		switch (identifier) {
+		case XPATH:
+			locatorIdentifiedBy = By.xpath(locator);
+			break;
+		case CSS:
+			locatorIdentifiedBy = By.cssSelector(locator);
+			break;
+		case ID:
+			locatorIdentifiedBy = By.id(locator);
+			break;
+		case NAME:
+			locatorIdentifiedBy = By.name(locator);
+			break;
+		case CLASS:
+			locatorIdentifiedBy = By.className(locator);
+			break;
+		case LINK:
+			locatorIdentifiedBy = By.linkText(locator);
+			break;
+		case LINKP:
+			locatorIdentifiedBy = By.partialLinkText(locator);
+			break;
+		default:
+			locatorIdentifiedBy = By.cssSelector(locator);
+			break;
+		}
+		return locatorIdentifiedBy;
+	}
 }
