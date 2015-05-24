@@ -1,6 +1,6 @@
 Webdriver Automation Framework
-
-	wdframework is automation framework for webpages using webdriver,maven,testng
+ 
+	wdframework is automation framework for webpages using Webdriver,Maven,testNG and developed on JAVA 
 
 	Download the project and build the project using "mvn clean install"
 
