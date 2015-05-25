@@ -10,7 +10,7 @@
 		<listener class-name="wdframework.listeners.ScreenShotListener" />
 	</listeners>
 
-	<parameter name="browser" value="chrome" />
+	<parameter name="browser" value="phantomjs" />
 	<parameter name="mode" value="local" />
 	<parameter name="baseurl" value="http://www.google.com/" />
 

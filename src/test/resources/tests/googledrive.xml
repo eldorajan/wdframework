@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Google Drive Test Suite">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="wdframework.listeners.SuiteListener" />
+		<listener class-name="wdframework.listeners.MethodListener" />
+		<listener class-name="wdframework.listeners.ScreenShotListener" />
+		<listener class-name="wdframework.listeners.PriorityListener" />
+	</listeners>
+
+	<parameter name="browser" value="chrome" />
+	<parameter name="mode" value="local" />
+	<parameter name="baseurl" value="https://accounts.google.com/Login?continue=http://www.drive.google.com/" />
+	
+	<test name="Google Drive Tests">
+	<groups>
+			<run>
+				<include name="sanity"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="wdframework.tests.googledrive.GoogleDriveTests" />
+		</classes>
+	</test>
+
+</suite>

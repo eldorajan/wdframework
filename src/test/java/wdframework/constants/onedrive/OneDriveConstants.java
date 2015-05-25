@@ -3,13 +3,13 @@ package wdframework.constants.onedrive;
 
 /**
  * One Drive Constants
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class OneDriveConstants  {
 
-	public static String username="XXXXX";
-	public static String password="XXXXX";
+	public static String username="XXXX";
+	public static String password="XXXX";
 	public static String Folder="Folder";
 	public static String Word="Word document";
 	public static String Excel="Excel workbook";

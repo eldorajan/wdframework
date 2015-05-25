@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Button Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class Button extends Element {

@@ -13,7 +13,7 @@ import com.thoughtworks.selenium.webdriven.Windows;
 
 /**
  * Action Super Class
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class Action{

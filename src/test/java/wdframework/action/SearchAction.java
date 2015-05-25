@@ -8,7 +8,7 @@ import wdframework.pageobjects.SearchPage;
 
 /**
  * Sample google search action class
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class SearchAction{
@@ -26,12 +26,14 @@ public class SearchAction{
 			Assert.assertTrue(sp.searchElement(driver).isElementVisible());
 			sp.searchElement(driver).type(text);
 			sp.searchElement(driver).submit();
-			Thread.sleep(5000);
+			
+			sp.searchLogo(driver).waitForElementPresent(driver);
+			sp.searchLogo(driver).waitForElementToBeVisible(driver); 
 			
 			Assert.assertTrue(sp.searchLogo(driver).isElementVisible());
 			Assert.assertTrue(driver.getTitle().contains(text));
 			
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

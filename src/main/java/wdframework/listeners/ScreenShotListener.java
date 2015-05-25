@@ -14,7 +14,7 @@ import org.testng.TestListenerAdapter;
 
 /**
  * Screenshot listener
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class ScreenShotListener extends TestListenerAdapter implements ISuiteListener {

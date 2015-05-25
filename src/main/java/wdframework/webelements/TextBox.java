@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * TextBox Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class TextBox extends Element {
@@ -23,11 +23,5 @@ public class TextBox extends Element {
 		super(driver, locator);
 	}
 
-	public void clear() {
-		element.clear();
-	}
 	
-	public void type(String text) {
-		element.sendKeys(text);
-	}
 }

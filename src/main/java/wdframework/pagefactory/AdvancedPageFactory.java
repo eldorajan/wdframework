@@ -6,7 +6,7 @@ import wdframework.webelements.BasePage;
 
 /**
  * Page factory for webelements
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class AdvancedPageFactory {

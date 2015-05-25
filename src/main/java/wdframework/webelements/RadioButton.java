@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * RadioButton Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class RadioButton extends Element {
@@ -21,20 +21,6 @@ public class RadioButton extends Element {
 	
 	public RadioButton(WebDriver driver, String locator) {
 		super(driver, locator);
-	}
-	
-	public void select() {
-		this.click();
-	}
-	
-	public void unselect(){
-		if(this.isSelected()){
-			this.click();
-		}
-	}
-
-	public boolean isSelected(){
-		return this.isSelected();
 	}
 	
 	

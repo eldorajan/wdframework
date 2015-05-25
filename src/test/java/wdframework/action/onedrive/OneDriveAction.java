@@ -25,7 +25,7 @@ import wdframework.webelements.HyperLink;
 
 /**
  * One Drive Action Class
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 @SuppressWarnings("unused")
@@ -33,7 +33,7 @@ public class OneDriveAction{
 
 	/**
 	 * File type enum type
-	 * @author erajan
+	 * @author Eldo Rajan
 	 *
 	 */
 	public enum FileType {
@@ -103,12 +103,14 @@ public class OneDriveAction{
 			odp.username(driver).clear();odp.username(driver).type(username);
 			odp.password(driver).clear();odp.password(driver).type(password);
 			odp.loginbutton(driver).click();
-			Thread.sleep(10000);
+			
+			odp.logo(driver).waitForElementPresent(driver);
+			odp.logo(driver).waitForElementToBeVisible(driver);
 
 			Assert.assertTrue(odp.logo(driver).isElementVisible());
 			Assert.assertTrue(driver.getTitle().contains("Files - OneDrive"));
 
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -421,7 +423,6 @@ public class OneDriveAction{
 			if(uploaddropdown.get(i).getText().trim().contains(itemType)){
 				uploaddropdown.get(i).mouseOver(driver);
 				uploaddropdown.get(i).mouseOverClick(driver);
-				uploaddropdown.get(i).click();
 				Thread.sleep(10000);
 				break;
 			}

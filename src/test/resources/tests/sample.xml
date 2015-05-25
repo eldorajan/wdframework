@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Sanity" parallel="methods" thread-count="5">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
+
+	<test name="Sample Tests on Grid">
+		<classes>
+			<class name="wdframework.tests.SampleTest" />
+		</classes>
+	</test>
+
+</suite>

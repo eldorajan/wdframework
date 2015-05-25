@@ -11,7 +11,7 @@ import org.testng.Reporter;
 
 /**
  * Logger class
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class Logger {

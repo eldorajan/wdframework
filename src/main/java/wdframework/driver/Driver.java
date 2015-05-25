@@ -180,18 +180,18 @@ public class Driver {
 										"resources"+File.separator+"lib"+File.separator+"phantomjs.exe";
 			desiredCapabilities = DesiredCapabilities.phantomjs();
 			ArrayList<String> cliArgsDesiredCapabilities = new ArrayList<String>();
-			cliArgsDesiredCapabilities.add("--web-security=false");
 			cliArgsDesiredCapabilities.add("--ssl-protocol=any");
 			cliArgsDesiredCapabilities.add("--ignore-ssl-errors=true");
-			cliArgsDesiredCapabilities.add("--web-security=no");
-			cliArgsDesiredCapabilities.add("--ignore-ssl-errors=yes");
+			cliArgsDesiredCapabilities.add("--web-security=false");
 			desiredCapabilities.setCapability("takesScreenshot", true);
 			desiredCapabilities.setCapability(
 			    PhantomJSDriverService.PHANTOMJS_CLI_ARGS, cliArgsDesiredCapabilities);
 			desiredCapabilities.setCapability(
 			    PhantomJSDriverService.PHANTOMJS_GHOSTDRIVER_CLI_ARGS,
 			        new String[] { "--logLevel=2" });
-			desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,phantomJsPath); 
+			desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,phantomJsPath);
+			desiredCapabilities.setCapability("phantomjs.page.settings.loadImages", true);
+			desiredCapabilities.setCapability("phantomjs.page.settings.localToRemoteUrlAccessEnabled", true);
 			desiredCapabilities.setJavascriptEnabled(true);			
 			break;
 		default:

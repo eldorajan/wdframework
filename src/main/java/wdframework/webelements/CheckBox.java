@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * Checkbox Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class CheckBox extends Element{
@@ -22,21 +22,5 @@ public class CheckBox extends Element{
 	public CheckBox(WebDriver driver, String locator) {
 		super(driver, locator);
 	}
-
-	public void check() {
-		this.click();
-	}
-	
-	public void uncheck(){
-		if(this.isSelected()){
-			this.click();
-		}
-	}
-
-	public boolean isChecked(){
-		return this.isSelected();
-	}
-	
-	
 	
 }

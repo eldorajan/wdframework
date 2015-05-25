@@ -8,7 +8,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
 import wdframework.driver.BrowserType;
 import wdframework.driver.Driver;
 import wdframework.driver.DriverType;
@@ -17,7 +16,7 @@ import wdframework.logger.Logger;
 
 /**
  * Common super class for driver running 
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class DriverRunner extends Driver{
@@ -28,7 +27,7 @@ public class DriverRunner extends Driver{
 	protected ThreadLocal<WebDriver> localdriver = new ThreadLocal<WebDriver>();
 	protected ThreadLocal<RemoteWebDriver> remotedriver = new ThreadLocal<RemoteWebDriver>();
 	TestConfig testconfig = null;   
-
+			
 	/**
 	 * Before Method instantiations
 	 * @param theTestContext
@@ -161,5 +160,6 @@ public class DriverRunner extends Driver{
 		return driver;
 
 	}
-
+	
+	
 }

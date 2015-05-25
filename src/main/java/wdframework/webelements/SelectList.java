@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * SelectList Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class SelectList extends Element{
@@ -22,26 +22,5 @@ public class SelectList extends Element{
 	public SelectList(WebDriver driver, String locator) {
 		super(driver, locator);
 	}
-
-	public void selectItem(String sItem) {
-		selectDropDown(sItem);	
-	}
-	
-	public  void selectValue(String sItem) {
-		selectValueFromDropDown(sItem);	
-	}
-	
-	public  void selectValueVisible(String sItem) {
-		selectValueVisible(sItem);	
-	}
-	
-	public String selectedItem(){
-		return selectedItem();
-	}
-	
-	public String[] getItemList(){
-		return getValueFromDropDown();
-	}
-	
 	
 }

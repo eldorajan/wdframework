@@ -22,7 +22,7 @@ public abstract class BasePage {
 	
 	/**
 	 * Enum for locator types
-	 * @author erajan
+	 * @author Eldo Rajan
 	 *
 	 */
 	public enum LocatorType {

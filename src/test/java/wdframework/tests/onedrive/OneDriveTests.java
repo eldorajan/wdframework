@@ -9,7 +9,7 @@ import wdframework.constants.onedrive.OneDriveConstants;
 
 /**
  * Onedrive Test Suite
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class OneDriveTests extends CommonTest{
@@ -187,5 +187,15 @@ public class OneDriveTests extends CommonTest{
 	public void downloadFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
 		onedrive.downloadFile(getWebDriver(), "Test");			
+	}
+	
+	/**
+	 * Delete uploaded word file
+	 */
+	@Priority(18)
+	@Test(groups = { "sanity" })
+	public void deleteUploadedWordFile() {
+		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
+		onedrive.deleteFile(getWebDriver(), OneDriveConstants.Word, OneDriveConstants.WordFileType, "Test");		
 	}
 }

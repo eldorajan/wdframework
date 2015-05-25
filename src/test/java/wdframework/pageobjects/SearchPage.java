@@ -8,7 +8,7 @@ import wdframework.webelements.TextBox;
 
 /**
  * Sample page
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class SearchPage extends BasePage{

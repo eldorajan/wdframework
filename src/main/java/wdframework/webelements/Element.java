@@ -8,18 +8,24 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import wdframework.webelements.BasePage.LocatorType;
 
 /**
  * Base Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class Element implements WebElement {
-
+	public int DEFAULT_IMPLICIT_WAIT_TIMEOUT = 5;
+	public int DEFAULT_EXPLICIT_WAIT_TIME_OUT = 15;
+	public int DEFAULT_PAGE_LOAD_TIMEOUT = 90;
+	
 	protected WebElement element;
+	protected String locator;
 	
 	public Element(WebElement element){
 		this.element = element;
@@ -30,6 +36,7 @@ public class Element implements WebElement {
 	}
 	
 	public Element(WebDriver driver,String locator){
+		this.locator = locator;
 		this.element = driver.findElement(getBy(locator));
 	}
 
@@ -197,7 +204,14 @@ public class Element implements WebElement {
 	
 	public void mouseOverClick(WebDriver driver){
 		Actions action = new Actions(driver);		 
-        action.moveToElement(element).click().build().perform();
+		Actions action2 = action.moveToElement(element);
+		action2.click().build().perform();
+	}
+	
+	public void mouseOverRightClick(WebDriver driver){
+		Actions action = new Actions(driver);		 
+		Actions action2 = action.moveToElement(element);
+		action2.contextClick().build().perform();
 	}
 	
 	public By getBy(String locator) {
@@ -232,6 +246,115 @@ public class Element implements WebElement {
 			break;
 		}
 		return locatorIdentifiedBy;
+	}
+	
+	public void check() {
+		element.click();
+	}
+	
+	public void uncheck(){
+		if(element.isSelected()){
+			element.click();
+		}
+	}
+
+	public boolean isChecked(){
+		return element.isSelected();
+	}
+	
+	public void select() {
+		element.click();
+	}
+	
+	public void unselect(){
+		if(element.isSelected()){
+			element.click();
+		}
+	}
+
+	public  void selectValue(String sItem) {
+		selectValueFromDropDown(sItem);	
+	}
+	
+	public String[] getItemList(){
+		return getValueFromDropDown();
+	}
+	
+	public void selectItem(String sItem) {
+		selectDropDown(sItem);	
+	}
+
+	/**
+	 * wait for element to be checked
+	 * @param driver
+	 * @param element
+	 */
+	public void waitForElementChecked(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT_TIME_OUT);
+		wait.until(ExpectedConditions.elementToBeSelected(element));
+	}
+
+	/**
+	 * wait for element to be editable
+	 * @param driver
+	 * @param element
+	 */
+	public void waitForElementEditable(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT_TIME_OUT);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
+	/**
+	 * wait for element to be present
+	 * @param driver
+	 * @param by
+	 */
+	public void waitForElementPresent(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT_TIME_OUT);
+		wait.until(ExpectedConditions.presenceOfElementLocated(getBy(locator)));
+	}
+
+	/**
+	 * wait for element to be present with timeout
+	 * @param driver
+	 * @param by
+	 * @param timeout
+	 */
+	public void waitForElementPresent(WebDriver driver, int timeout) {
+		WebDriverWait wait = new WebDriverWait(driver, timeout);
+		wait.until(ExpectedConditions.presenceOfElementLocated(getBy(locator)));
+	}
+
+	
+	/**
+	 * wait for element to be present
+	 * @param driver
+	 * @param element
+	 */
+	public void waitForElementToBeVisible(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT_TIME_OUT);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
+	/**
+	 * wait for element to be disappear
+	 * @param driver
+	 * @param by
+	 */
+	public void waitForElementToDisappear(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT_TIME_OUT);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(getBy(locator)));
+	}
+
+	/**
+	 * wait for text to be present
+	 * @param driver
+	 * @param element
+	 * @param text
+	 */
+	public void waitForTextPresent(WebDriver driver,String text) {
+		WebDriverWait wait = new WebDriverWait(driver, DEFAULT_EXPLICIT_WAIT_TIME_OUT);
+		wait.until(ExpectedConditions.textToBePresentInElement(element, text));
 	}
 	
 }

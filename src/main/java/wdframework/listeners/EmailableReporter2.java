@@ -33,7 +33,7 @@ import java.util.TreeSet;
  * Reported designed to render self-contained HTML top down view of a testing
  * suite.
  *
- * @author erajan
+ * @author Eldo Rajan
  * @since 5.2
  * @version $Revision: 719 $
  */
@@ -87,7 +87,7 @@ public class EmailableReporter2 implements IReporter {
 	}
 
 	protected PrintWriter createWriter(String outdir) throws IOException {
-		return new PrintWriter(new BufferedWriter(new FileWriter(new File(outdir, "emailable-report2.html"))));
+		return new PrintWriter(new BufferedWriter(new FileWriter(new File(outdir, "emailable-report.html"))));
 	}
 
 	/** Creates a table showing the highlights of each test method with links to the method details */

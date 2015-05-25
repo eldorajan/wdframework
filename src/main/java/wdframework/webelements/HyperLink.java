@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 /**
  * HyperLink Element
- * @author erajan
+ * @author Eldo Rajan
  *
  */
 public class HyperLink extends Element {
