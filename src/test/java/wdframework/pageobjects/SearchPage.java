@@ -15,11 +15,11 @@ public class SearchPage extends BasePage{
 
 	
 
-	public TextBox searchElement(WebDriver driver){
+	public TextBox searchelement(WebDriver driver){
 		return new TextBox(driver,getLocator());
 	}
 	
-	public HyperLink searchLogo(WebDriver driver){
+	public HyperLink searchlogo(WebDriver driver){
 		return new HyperLink(driver,getLocator());
 	}
 }

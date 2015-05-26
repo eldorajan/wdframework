@@ -23,14 +23,15 @@ public class SearchAction{
 		try {
 			SearchPage sp =  AdvancedPageFactory.getPageObject(driver,SearchPage.class);
 			
-			Assert.assertTrue(sp.searchElement(driver).isElementVisible());
-			sp.searchElement(driver).type(text);
-			sp.searchElement(driver).submit();
+			Assert.assertTrue(sp.searchelement(driver).isElementVisible());
+			sp.searchelement(driver).type(text);
+			sp.searchelement(driver).submit();
 			
-			sp.searchLogo(driver).waitForElementPresent(driver);
-			sp.searchLogo(driver).waitForElementToBeVisible(driver); 
+			Thread.sleep(5000);
 			
-			Assert.assertTrue(sp.searchLogo(driver).isElementVisible());
+			sp.searchlogo(driver).waitForElementPresent(driver);
+			sp.searchlogo(driver).waitForElementToBeVisible(driver);
+			Assert.assertTrue(sp.searchlogo(driver).isElementVisible());
 			Assert.assertTrue(driver.getTitle().contains(text));
 			
 		} catch (Exception e) {

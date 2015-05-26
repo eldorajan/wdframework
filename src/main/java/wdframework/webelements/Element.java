@@ -11,7 +11,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import wdframework.logger.Logger;
 import wdframework.webelements.BasePage.LocatorType;
 
 /**
@@ -20,11 +22,12 @@ import wdframework.webelements.BasePage.LocatorType;
  *
  */
 public class Element implements WebElement {
-	public int DEFAULT_IMPLICIT_WAIT_TIMEOUT = 5;
-	public int DEFAULT_EXPLICIT_WAIT_TIME_OUT = 15;
-	public int DEFAULT_PAGE_LOAD_TIMEOUT = 90;
+	protected int DEFAULT_IMPLICIT_WAIT_TIMEOUT = 5;
+	protected int DEFAULT_EXPLICIT_WAIT_TIME_OUT = 15;
+	protected int DEFAULT_PAGE_LOAD_TIMEOUT = 90;
 	
 	protected WebElement element;
+	protected WebDriver driver;
 	protected String locator;
 	
 	public Element(WebElement element){
@@ -32,12 +35,19 @@ public class Element implements WebElement {
 	}
 	
 	public Element(WebDriver driver,By by){
-		this.element = driver.findElement(by);
+		this.driver = driver;
+		try{
+			this.element = driver.findElement(by);
+		}catch(Exception e){} 
 	}
 	
 	public Element(WebDriver driver,String locator){
 		this.locator = locator;
-		this.element = driver.findElement(getBy(locator));
+		this.driver = driver;
+		try{
+			this.element = driver.findElement(getBy(locator));
+		}catch(Exception e){} 
+		
 	}
 
 	public WebElement getElement() {
@@ -60,7 +70,13 @@ public class Element implements WebElement {
 
 	
 	public WebElement findElement(By by) {
-		return findElement(by);
+		try{
+			return findElement(by);
+		}catch(Exception e){
+			return null;
+		} 
+		
+		
 	}
 
 	
@@ -100,17 +116,29 @@ public class Element implements WebElement {
 
 	
 	public boolean isDisplayed() {
-		return element.isDisplayed();
+		try{
+			return element.isDisplayed();
+		}catch(Exception e){
+			return false;
+		} 		
 	}
 
 	
 	public boolean isEnabled() {
-		return element.isEnabled();
+		try{
+			return element.isEnabled();
+		}catch(Exception e){
+			return false;
+		} 
 	}
 
 	
 	public boolean isSelected() {
-		return element.isSelected();
+		try{
+			return element.isSelected();
+		}catch(Exception e){
+			return false;
+		} 
 	}
 
 	
@@ -128,20 +156,20 @@ public class Element implements WebElement {
 		element.sendKeys(text);
 	}
 
-	public boolean isElementPresent(By by) {
-		boolean present = false;
+	public boolean isElementPresent(WebDriver driver) {
 		try{
-			element.findElement(by);
-			present = true;
+			return driver.findElements(getBy(locator)).size()>0;
 		}catch(Exception e){
-			present = false;
+			return false;
 		} 
-		return present; 
-
 	}
 	
 	public boolean isElementVisible() {
-		return element.isDisplayed();
+		try{
+			return element.isDisplayed();
+		}catch(Exception e){
+			return false;
+		} 
 	}
 	
 	public void selectDropDown(String valToSelect){
@@ -259,7 +287,11 @@ public class Element implements WebElement {
 	}
 
 	public boolean isChecked(){
-		return element.isSelected();
+		try{
+			return element.isSelected();
+		}catch(Exception e){
+			return false;
+		} 
 	}
 	
 	public void select() {
@@ -320,7 +352,7 @@ public class Element implements WebElement {
 	 * @param by
 	 * @param timeout
 	 */
-	public void waitForElementPresent(WebDriver driver, int timeout) {
+	public void waitForElementPresent(WebDriver driver,int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		wait.until(ExpectedConditions.presenceOfElementLocated(getBy(locator)));
 	}
