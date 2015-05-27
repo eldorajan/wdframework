@@ -17,7 +17,6 @@ public class MethodListener  implements ITestListener {
 	@Override
 	public void onFinish(ITestContext arg0) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -28,19 +27,16 @@ public class MethodListener  implements ITestListener {
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void onTestFailure(ITestResult arg0) {
-		// TODO Auto-generated method stub
-
-			}
+		Logger.info("Failed the test case:" + arg0.getMethod().getMethodName());
+	}
 
 	@Override
 	public void onTestSkipped(ITestResult arg0) {
-		// TODO Auto-generated method stub
-
+		Logger.info("Skipped the test case:" + arg0.getMethod().getMethodName());
 	}
 
 	@Override

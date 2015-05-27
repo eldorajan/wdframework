@@ -14,7 +14,11 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-
+/**
+ * Driver Capabilities
+ * @author Eldo Rajan
+ *
+ */
 public class DriverCapabilities {
 	TestConfig testconfig = new TestConfig();
 	private DesiredCapabilities desiredCapabilities;
@@ -25,6 +29,11 @@ public class DriverCapabilities {
 		setDesiredCapabilities(createDesiredCapabilities(testconfig.getBrowser()));
 	}
 
+	/**
+	 * create desired capabilities
+	 * @param browserType
+	 * @return
+	 */
 	@SuppressWarnings("deprecation")
 	public DesiredCapabilities createDesiredCapabilities(BrowserType browserType) {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -120,11 +129,19 @@ public class DriverCapabilities {
 		}
 		return desiredCapabilities;
 	}
-
+	
+	/**
+	 * get desired capabilities
+	 * @return
+	 */
 	public DesiredCapabilities getDesiredCapabilities() {
 		return desiredCapabilities;
 	}
 
+	/**
+	 * set desired capabilities
+	 * @return
+	 */
 	public void setDesiredCapabilities(DesiredCapabilities desiredCapabilities) {
 		this.desiredCapabilities = desiredCapabilities;
 	}

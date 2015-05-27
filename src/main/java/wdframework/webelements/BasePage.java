@@ -11,11 +11,11 @@ import org.openqa.selenium.By;
 
 /**
  * Base html page abstraction. Used by PageObject and WebPageSection
+ * @author Eldo Rajan
+ *
  */
 public abstract class BasePage {
 
-
-	
 
 	private String LOCATOR_CONFIG_PROPERTIES = "locators/FILENAME.properties";
 	Properties properties = new Properties();

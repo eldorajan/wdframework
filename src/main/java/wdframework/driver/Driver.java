@@ -24,7 +24,11 @@ import wdframework.logger.Logger;
 
 import com.opera.core.systems.OperaDriver;
 
-
+/**
+ * Driver Class
+ * @author Eldo Rajan
+ *
+ */
 public class Driver {
 
 

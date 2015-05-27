@@ -16,6 +16,8 @@ import org.testng.Assert;
 
 import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
+import wdframework.action.Action;
+import wdframework.action.fileupload.FileUploadAction;
 import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
 import wdframework.pageobjects.GoogleDrivePage;
@@ -25,12 +27,12 @@ import wdframework.webelements.Element;
 import wdframework.webelements.HyperLink;
 
 /**
- * One Drive Action Class
+ * Google Drive Action Class
  * @author Eldo Rajan
  *
  */
 @SuppressWarnings("unused")
-public class GoogleDriveAction{
+public class GoogleDriveAction extends Action{
 
 	/**
 	 * File type enum type
@@ -39,14 +41,14 @@ public class GoogleDriveAction{
 	 */
 	public enum FileType {
 
-		Word("Word document"),
-		Excel("Excel workbook"),
-		PowerPoint("PowerPoint presentation"),
-		OneNote("OneNote notebook"),
-		ExcelSurvey("Excel survey"),
-		PlainText("Plain text document");
+		Docs("Google Docs"),
+		Sheets("Google Sheets"),
+		Slides("Google Slides"),
+		Forms("Google Forms"),
+		Drawings("Google Drawings"),
+		Maps("Google My Maps");
 
-		private String fileType;
+		public String fileType;
 
 		FileType(String fileType) {
 			this.fileType = fileType;
@@ -66,18 +68,18 @@ public class GoogleDriveAction{
 	public static FileType getFileType(String fileType) {
 		FileType fType=null;
 		try{
-			if (fileType.equalsIgnoreCase("Word document")) {
-				fType=FileType.Word;
-			} else if (fileType.equalsIgnoreCase("Excel workbook")) {
-				fType=FileType.Excel;
-			} else if (fileType.equalsIgnoreCase("PowerPoint presentation")) {
-				fType=FileType.PowerPoint;
-			} else if (fileType.equalsIgnoreCase("OneNote notebook")) {
-				fType=FileType.OneNote;
-			} else if (fileType.equalsIgnoreCase("Excel survey")) {
-				fType=FileType.ExcelSurvey;
-			} else if (fileType.equalsIgnoreCase("Plain text document")) {
-				fType=FileType.PlainText;
+			if (fileType.equalsIgnoreCase("Google Docs")) {
+				fType=FileType.Docs;
+			} else if (fileType.equalsIgnoreCase("Google Sheets")) {
+				fType=FileType.Sheets;
+			} else if (fileType.equalsIgnoreCase("Google Slides")) {
+				fType=FileType.Slides;
+			} else if (fileType.equalsIgnoreCase("Google Forms")) {
+				fType=FileType.Forms;
+			} else if (fileType.equalsIgnoreCase("Google Drawings")) {
+				fType=FileType.Drawings;
+			} else if (fileType.equalsIgnoreCase("Google My Maps")) {
+				fType=FileType.Maps;
 			}
 		} catch (Exception e) {
 			//e.printStackTrace();
@@ -93,6 +95,7 @@ public class GoogleDriveAction{
 	 * @param password
 	 */
 	public void login(WebDriver driver,String username,String password){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
@@ -114,20 +117,21 @@ public class GoogleDriveAction{
 			Assert.assertTrue(driver.getTitle().contains("My Drive - Google Drive"));
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
+
 
 	/**
 	 * create folder
 	 * @param driver
-	 * @param itemType
+	 * @param optionType
 	 * @param folderName
 	 */
 	public void createFolder(WebDriver driver, String optionType, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
@@ -143,15 +147,21 @@ public class GoogleDriveAction{
 			String[] folderNames = getAllFolderNames(driver,folderName);	
 			Assert.assertTrue(Arrays.asList(folderNames).contains(folderName),"Folder creation failed for folder name:"+folderName);
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	public void deleteFolder(WebDriver driver, String itemType, String folderName) {
+	/**
+	 * 
+	 * @param driver
+	 * @param itemType
+	 * @param folderName
+	 */
+	public void deleteFolder(WebDriver driver, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
@@ -163,15 +173,22 @@ public class GoogleDriveAction{
 
 			Assert.assertTrue(countAfter==countBefore-1,"Folder deletion failed as new folder is not deleted");
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
+	/**
+	 * upload file
+	 * @param driver
+	 * @param optionType
+	 * @param fileName
+	 */
 	public void uploadFile(WebDriver driver, String optionType, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		FileUploadAction fu = new FileUploadAction();
+
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
@@ -180,110 +197,83 @@ public class GoogleDriveAction{
 			clickMyDriveButton(driver, "My Drive");
 			clickCreateOptionType(driver, optionType);
 			if(driver instanceof FirefoxDriver){
-				autoitFileUploadFirefox(fileName);
+				fu.autoitFileUploadFirefox(fileName);
 			}else{
-				autoitFileUploadChrome(fileName);
+				fu.autoitFileUploadChrome(fileName);
 			}
-			int countAfter = getFileCount(driver);;	
+			int countAfter = getFileCount(driver);
 
 			Assert.assertTrue(countAfter==countBefore+1,"File upload failed as new folder is not uploaded");
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-	
+
+	/**
+	 * download file
+	 * @param driver
+	 * @param fileName
+	 */
 	public void downloadFile(WebDriver driver, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
 			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
 			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
 			int fileCountBefore = dir.listFiles(fileFilter).length;
-			
+
 			rightClickOnFileName(driver,fileName);
 			clickFileRightClickOptions(driver,"Download");
-			
+
 			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
 			fileFilter = new WildcardFileFilter("Test*.docx");
 			int fileCountAfter = dir.listFiles(fileFilter).length;			
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
-			
+
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-	
+
+	/**
+	 * delete file
+	 * @param driver
+	 * @param fileName
+	 */
 	public void deleteFile(WebDriver driver, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
 			int countBefore = getFileCount(driver,fileName);
-			
+
 			rightClickOnFileName(driver,fileName);
 			clickFileRightClickOptions(driver,"Remove");
-			
+
 			int countAfter = getFileCount(driver,fileName);	
 
 			Assert.assertTrue(countAfter==countBefore-1,"Folder deletion failed as new folder is not deleted");
-			
+
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 
 	/**
-	 * autoit file upload chrome
-	 * @param fileName
+	 * type my drive folder text box
+	 * @param driver
+	 * @param folderName
 	 */
-	public void autoitFileUploadChrome(String fileName){
+	public void typeMyDriveFolderTextbox(WebDriver driver, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadchrome.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-	}
-
-	/**
-	 * autoit file upload firefox
-	 * @param fileName
-	 */
-	public void autoitFileUploadFirefox(String fileName){
-
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadfirefox.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-	}
-
-	private void typeMyDriveFolderTextbox(WebDriver driver, String folderName) {
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		try {
 			List<Element> mydrivefoldertextbox  = gdp.mydrivefoldertextbox(driver).getChildElements();		
@@ -293,11 +283,12 @@ public class GoogleDriveAction{
 				gdp.mydrivefoldercreatebutton(driver).click();
 				Thread.sleep(10000);
 			}
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
+
 
 	/**
 	 * Click on my drive button
@@ -305,66 +296,92 @@ public class GoogleDriveAction{
 	 * @param itemType
 	 * @throws InterruptedException
 	 */
-	private void clickMyDriveButton(WebDriver driver, String itemType) throws InterruptedException {
-		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+	public void clickMyDriveButton(WebDriver driver, String itemType){
 
-		List<Element> mydrivebutton  = gdp.mydrivebutton(driver).getChildElements();		
-		for(int i=0;i<mydrivebutton.size();i++){
-			if(mydrivebutton.get(i).getText().trim().contains(itemType)){
-				mydrivebutton.get(i).click();
-				Thread.sleep(10000);
-				break;
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try{
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+
+			List<Element> mydrivebutton  = gdp.mydrivebutton(driver).getChildElements();		
+			for(int i=0;i<mydrivebutton.size();i++){
+				if(mydrivebutton.get(i).getText().trim().contains(itemType)){
+					mydrivebutton.get(i).click();
+					Thread.sleep(10000);
+					break;
+				}
 			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
+
 
 	/**
-	 * Click on create/upload link
+	 * click create option type
 	 * @param driver
-	 * @param itemType
-	 * @throws InterruptedException
+	 * @param optionType
 	 */
-	private void clickCreateOptionType(WebDriver driver, String optionType) throws InterruptedException {
-		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+	public void clickCreateOptionType(WebDriver driver, String optionType){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try{
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
-		List<Element> mydrivebuttondropdown  = gdp.mydrivebuttondropdown(driver).getChildElements();		
-		for(int i=0;i<mydrivebuttondropdown.size();i++){
-			if(mydrivebuttondropdown.get(i).getText().trim().contains(optionType)){
-				mydrivebuttondropdown.get(i).click();
-				Thread.sleep(10000);
-				break;
+			List<Element> mydrivebuttondropdown  = gdp.mydrivebuttondropdown(driver).getChildElements();		
+			for(int i=0;i<mydrivebuttondropdown.size();i++){
+				if(mydrivebuttondropdown.get(i).getText().trim().contains(optionType)){
+					mydrivebuttondropdown.get(i).click();
+					Thread.sleep(10000);
+					break;
+				}
 			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
+
 
 	/**
 	 * get folder count
 	 * @param driver
+	 * @param folderName
 	 * @return
 	 */
 	public int getFolderCount(WebDriver driver,String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		List<Element> mydrivefolderelement  = gdp.mydrivefolderelement(driver,folderName).getChildElements();
+
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		return mydrivefolderelement.size();	
 	}
 
 	/**
-	 * get folder count
+	 * get file count
 	 * @param driver
 	 * @return
 	 */
 	public int getFileCount(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		List<Element> mydrivefileelement  = gdp.mydrivefileelement(driver).getChildElements();
+
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		return mydrivefileelement.size();	
 	}
 
 	/**
 	 * get all folder names
 	 * @param driver
+	 * @param folderName
 	 * @return
 	 */
 	public String[] getAllFolderNames(WebDriver driver,String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		List<Element> mydrivefolderelementtitle  = gdp.mydrivefolderelementtitle(driver,folderName).getChildElements();
 		String[] list = new String[mydrivefolderelementtitle.size()];
@@ -372,15 +389,18 @@ public class GoogleDriveAction{
 			list[i] = mydrivefolderelementtitle.get(i).getText().trim();
 		}
 
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		return list;	
 	}
 
 	/**
-	 * get all folder names
+	 * right click on folder name
 	 * @param driver
-	 * @return
+	 * @param folderName
 	 */
 	public void rightClickOnFolderName(WebDriver driver,String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		List<Element> mydrivefolderelement  = gdp.mydrivefolderelement(driver,folderName).getChildElements();
 		String[] list = new String[mydrivefolderelement.size()];
@@ -389,28 +409,41 @@ public class GoogleDriveAction{
 			break;
 		}
 
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	private void clickFolderRightClickOptions(WebDriver driver, String optionType) throws InterruptedException {
-		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
-
-		List<Element> mydrivefolderrightclickoptions  = gdp.mydrivefolderrightclickoptions(driver).getChildElements();		
-		for(int i=0;i<mydrivefolderrightclickoptions.size();i++){
-			if(mydrivefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
-				mydrivefolderrightclickoptions.get(i).click();
-				Thread.sleep(10000);
-				break;
-			}
-		}
-	}
-	
 	/**
-	 * get all folder names
+	 * click folder right click options
 	 * @param driver
-	 * @return
+	 * @param optionType
+	 */
+	public void clickFolderRightClickOptions(WebDriver driver, String optionType){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try{
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+
+			List<Element> mydrivefolderrightclickoptions  = gdp.mydrivefolderrightclickoptions(driver).getChildElements();		
+			for(int i=0;i<mydrivefolderrightclickoptions.size();i++){
+				if(mydrivefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
+					mydrivefolderrightclickoptions.get(i).click();
+					Thread.sleep(10000);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * right click on file name
+	 * @param driver
+	 * @param fileName
 	 */
 	public void rightClickOnFileName(WebDriver driver,String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		List<Element> mydrivetypefileelement  = gdp.mydrivetypefileelement(driver,fileName).getChildElements();
 		String[] list = new String[mydrivetypefileelement.size()];
@@ -419,33 +452,50 @@ public class GoogleDriveAction{
 			break;
 		}
 
-
-	}
-
-	private void clickFileRightClickOptions(WebDriver driver, String optionType) throws InterruptedException {
-		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
-
-		List<Element> mydrivefolderrightclickoptions  = gdp.mydrivefolderrightclickoptions(driver).getChildElements();		
-		for(int i=0;i<mydrivefolderrightclickoptions.size();i++){
-			if(mydrivefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
-				mydrivefolderrightclickoptions.get(i).click();
-				Thread.sleep(10000);
-				break;
-			}
-		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	/**
-	 * get folder count
+	 * click file right click options
 	 * @param driver
+	 * @param optionType
+	 */
+	public void clickFileRightClickOptions(WebDriver driver, String optionType){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try{
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+
+			List<Element> mydrivefolderrightclickoptions  = gdp.mydrivefolderrightclickoptions(driver).getChildElements();		
+			for(int i=0;i<mydrivefolderrightclickoptions.size();i++){
+				if(mydrivefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
+					mydrivefolderrightclickoptions.get(i).click();
+					Thread.sleep(10000);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * get file name
+	 * @param driver
+	 * @param fileName
 	 * @return
 	 */
 	public int getFileCount(WebDriver driver,String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
 		GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 		List<Element> mydrivetypefileelement  = gdp.mydrivetypefileelement(driver, fileName).getChildElements();
+		
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		
 		return mydrivetypefileelement.size();	
 	}
-	
+
 
 
 }

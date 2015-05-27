@@ -7,7 +7,7 @@ import wdframework.webelements.HyperLink;
 import wdframework.webelements.TextBox;
 
 /**
- * Sample page
+ * Search page
  * @author Eldo Rajan
  *
  */

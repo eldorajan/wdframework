@@ -107,7 +107,7 @@ public class DriverRunner extends Driver{
 	}
 
 	/**
-	 * After method 
+	 * After method disembodifying 
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void stopBrowser() {
@@ -126,7 +126,7 @@ public class DriverRunner extends Driver{
 	}
 
 	/**
-	 *  gets webdriver instance   
+	 * gets webdriver instance   
 	 * @return
 	 */
 	public WebDriver getWebDriver(){

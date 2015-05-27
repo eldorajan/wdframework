@@ -50,7 +50,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Create word file
+	 * Create Word File Test
 	 */
 	@Priority(4)
 	@Test(groups = { "sanity" })
@@ -60,7 +60,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Create excel file
+	 * Create Excel File Test
 	 */
 	@Priority(5)
 	@Test(groups = { "sanity" })
@@ -70,7 +70,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Create powerpoint file
+	 * Create Powerpoint File Test
 	 */
 	@Priority(6)
 	@Test(groups = { "sanity" })
@@ -80,7 +80,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Create onenote file
+	 * Create Onenote File Test
 	 */
 	@Priority(7)
 	@Test(groups = { "sanity" })
@@ -90,7 +90,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Create excel survey file
+	 * Create Excel Survey File Test
 	 */
 	@Priority(8)
 	@Test(groups = { "sanity" })
@@ -100,7 +100,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Create plain text file
+	 * Create Plain Text File Test
 	 */
 	@Priority(9)
 	@Test(groups = { "sanity" })
@@ -110,7 +110,7 @@ public class OneDriveTests extends CommonTest{
 	}
 
 	/**
-	 * Delete word file
+	 * Delete Word File Test
 	 */
 	@Priority(10)
 	@Test(groups = { "sanity" })
@@ -120,7 +120,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete excel file
+	 * Delete Excel File Test
 	 */
 	@Priority(11)
 	@Test(groups = { "sanity" })
@@ -130,7 +130,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete powerpoint file
+	 * Delete Powerpoint File Test
 	 */
 	@Priority(12)
 	@Test(groups = { "sanity" })
@@ -140,7 +140,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete one note file
+	 * Delete One Note File Test
 	 */
 	@Priority(13)
 	@Test(groups = { "sanity" })
@@ -150,7 +150,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete excel survey file
+	 * Delete Excel Survey File Test
 	 */
 	@Priority(14)
 	@Test(groups = { "sanity" })
@@ -160,7 +160,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete plain text file
+	 * Delete Plain Text File Test
 	 */
 	@Priority(15)
 	@Test(groups = { "sanity" })
@@ -170,7 +170,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Upload file
+	 * Upload File Test
 	 */
 	@Priority(16)
 	@Test(groups = { "sanity" })
@@ -180,7 +180,7 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Download file
+	 * Download File Test
 	 */
 	@Priority(17)
 	@Test(groups = { "sanity" })
@@ -190,11 +190,11 @@ public class OneDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete uploaded word file
+	 * Delete File Test
 	 */
 	@Priority(18)
 	@Test(groups = { "sanity" })
-	public void deleteUploadedWordFile() {
+	public void deleteFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
 		onedrive.deleteFile(getWebDriver(), OneDriveConstants.Word, OneDriveConstants.WordFileType, "Test");		
 	}

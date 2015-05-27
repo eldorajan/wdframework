@@ -16,6 +16,8 @@ import org.testng.Assert;
 
 import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
+import wdframework.action.Action;
+import wdframework.action.fileupload.FileUploadAction;
 import wdframework.constants.dropbox.DropBoxConstants;
 import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
@@ -26,12 +28,12 @@ import wdframework.webelements.Element;
 import wdframework.webelements.HyperLink;
 
 /**
- * One Drive Action Class
+ * Dropbox Action Class
  * @author Eldo Rajan
  *
  */
 @SuppressWarnings("unused")
-public class DropBoxAction{
+public class DropBoxAction extends Action{
 
 	/**
 	 * File type enum type
@@ -63,9 +65,9 @@ public class DropBoxAction{
 	public static FileType getFileType(String fileType) {
 		FileType fType=null;
 		try{
-			if (fileType.equalsIgnoreCase("Folder")) {
+			if (fileType.equalsIgnoreCase("Folder")||fileType.equalsIgnoreCase("folder")) {
 				fType=FileType.Folder;
-			} else if (fileType.equalsIgnoreCase("document")) {
+			} else if (fileType.equalsIgnoreCase("Document")||fileType.equalsIgnoreCase("document")) {
 				fType=FileType.Document;
 			} 
 		} catch (Exception e) {
@@ -82,7 +84,7 @@ public class DropBoxAction{
 	 * @param password
 	 */
 	public void login(WebDriver driver,String username,String password){
-
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -102,53 +104,10 @@ public class DropBoxAction{
 			Assert.assertTrue(dbp.logo(driver).isElementVisible());
 			Assert.assertTrue(driver.getTitle().contains("Home - Dropbox"));
 
-			/*if(dbp.closeoverlayicon(driver).isElementPresent(driver)){
-				if(dbp.closeoverlayicon(driver).isElementVisible()){
-					dbp.closeoverlayicon(driver).click();
-					Thread.sleep(2000);
-				}
-			}*/
-
-
-
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
-	}
-
-	/**
-	 * get folder count
-	 * @param driver
-	 * @return
-	 */
-	public int getFolderFileCount(WebDriver driver,String itemType) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> getdropboxfilefoldercount  = dbp.getdropboxfilefoldercount(driver).getChildElements();
-		int count=0;		
-		for(int i=0;i<getdropboxfilefoldercount.size();i++){
-			if(getdropboxfilefoldercount.get(i).getText().trim().equalsIgnoreCase(itemType)){
-				count++;
-			}
-		}
-		return count;	
-	}
-
-	/**
-	 * get folder count
-	 * @param driver
-	 * @return
-	 */
-	public String[] getFolderFileNames(WebDriver driver) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> getdropboxfilefoldertitle  = dbp.getdropboxfilefoldertitle(driver).getChildElements();
-		int count=0; String[] folderFileNames = new String[getdropboxfilefoldertitle.size()];
-		for(int i=0;i<getdropboxfilefoldertitle.size();i++){
-			folderFileNames[i] = getdropboxfilefoldertitle.get(i).getText().trim();
-		}
-		return folderFileNames;	
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	/**
@@ -158,6 +117,7 @@ public class DropBoxAction{
 	 * @param folderName
 	 */
 	public void createFolder(WebDriver driver, String optionType, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -174,11 +134,9 @@ public class DropBoxAction{
 			Assert.assertTrue(Arrays.asList(folderNames).contains(folderName),"Folder creation failed for folder name:"+folderName);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	/**
@@ -188,6 +146,7 @@ public class DropBoxAction{
 	 * @param folderName
 	 */
 	public void downloadFolder(WebDriver driver, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -204,13 +163,11 @@ public class DropBoxAction{
 			int fileCountAfter = dir.listFiles(fileFilter).length;			
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"Folder downloaded failed as folder "+folderName+" is not downloaded");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-
+	
 	/**
 	 * delete folder
 	 * @param driver
@@ -218,6 +175,7 @@ public class DropBoxAction{
 	 * @param folderName
 	 */
 	public void deleteFolder(WebDriver driver, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -230,14 +188,14 @@ public class DropBoxAction{
 
 			Assert.assertTrue(countAfter==countBefore-1,"Folder deletion failed as new folder is not deleted");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-	
+
 	public void uploadFile(WebDriver driver, String optionType, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		FileUploadAction fu = new FileUploadAction();
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -246,9 +204,9 @@ public class DropBoxAction{
 			clickDropboxMenuActionsLink(driver, DropBoxConstants.UploadFiles);
 			clickChooseFilesButton(driver);	
 			if(driver instanceof FirefoxDriver){
-				autoitFileUploadFirefox(fileName);
+				fu.autoitFileUploadFirefox(fileName);
 			}else{
-				autoitFileUploadChrome(fileName);
+				fu.autoitFileUploadChrome(fileName);
 			}
 
 			int countAfter = getFolderFileCount(driver,"document");	
@@ -258,14 +216,12 @@ public class DropBoxAction{
 			Assert.assertTrue(Arrays.asList(folderNames).contains(fileName),"File creation failed for file name:"+fileName);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-	
-	
+
+
 	/**
 	 * delete folder
 	 * @param driver
@@ -273,6 +229,7 @@ public class DropBoxAction{
 	 * @param folderName
 	 */
 	public void downloadFile(WebDriver driver, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -288,14 +245,11 @@ public class DropBoxAction{
 			fileFilter = new WildcardFileFilter("Test*.docx");
 			int fileCountAfter = dir.listFiles(fileFilter).length;	
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-	
 	/**
 	 * delete folder
 	 * @param driver
@@ -303,6 +257,7 @@ public class DropBoxAction{
 	 * @param folderName
 	 */
 	public void deleteFile(WebDriver driver, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
@@ -315,32 +270,69 @@ public class DropBoxAction{
 
 			Assert.assertTrue(countAfter==countBefore-1,"File deletion failed as new file is not deleted");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
-	
-	public void clickChooseFilesButton(WebDriver driver) {
+
+
+	/**
+	 * get folder count
+	 * @param driver
+	 * @return
+	 */
+	public int getFolderFileCount(WebDriver driver,String itemType) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> dropboxchoosefilebutton  = dbp.dropboxchoosefilebutton(driver).getChildElements();
-		for(int i=0;i<dropboxchoosefilebutton.size();i++){
-			dropboxchoosefilebutton.get(i).click();
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		List<Element> getdropboxfilefoldercount  = dbp.getdropboxfilefoldercount(driver).getChildElements();
+		int count=0;		
+		for(int i=0;i<getdropboxfilefoldercount.size();i++){
+			if(getdropboxfilefoldercount.get(i).getText().trim().equalsIgnoreCase(itemType)){
+				count++;
 			}
-			break;
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return count;	
 	}
-	
+
+	/**
+	 * get folder count
+	 * @param driver
+	 * @return
+	 */
+	public String[] getFolderFileNames(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+		List<Element> getdropboxfilefoldertitle  = dbp.getdropboxfilefoldertitle(driver).getChildElements();
+		int count=0; String[] folderFileNames = new String[getdropboxfilefoldertitle.size()];
+		for(int i=0;i<getdropboxfilefoldertitle.size();i++){
+			folderFileNames[i] = getdropboxfilefoldertitle.get(i).getText().trim();
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return folderFileNames;	
+	}
+
+
+
+	public void clickChooseFilesButton(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try{
+			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+			List<Element> dropboxchoosefilebutton  = dbp.dropboxchoosefilebutton(driver).getChildElements();
+			for(int i=0;i<dropboxchoosefilebutton.size();i++){
+				dropboxchoosefilebutton.get(i).click();
+				Thread.sleep(5000);
+				break;
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
 
 	public void rightClickOnFolderName(WebDriver driver,String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 		List<Element> getdropboxfilefoldertitle  = dbp.getdropboxfilefoldertitle(driver).getChildElements();
 		for(int i=0;i<getdropboxfilefoldertitle.size();i++){
@@ -348,60 +340,63 @@ public class DropBoxAction{
 				getdropboxfilefoldertitle.get(i).mouseOverRightClick(driver);
 				break;
 			}
-
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	public void clickDeleteButton(WebDriver driver) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> dropboxdeletefolderbutton  = dbp.dropboxdeletefolderbutton(driver).getChildElements();
-		for(int i=0;i<dropboxdeletefolderbutton.size();i++){
-			if(dropboxdeletefolderbutton.get(i).getText().trim().equalsIgnoreCase("Delete")){
-				dropboxdeletefolderbutton.get(i).click();
-				try {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+			List<Element> dropboxdeletefolderbutton  = dbp.dropboxdeletefolderbutton(driver).getChildElements();
+			for(int i=0;i<dropboxdeletefolderbutton.size();i++){
+				if(dropboxdeletefolderbutton.get(i).getText().trim().equalsIgnoreCase("Delete")){
+					dropboxdeletefolderbutton.get(i).click();
 					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					break;
 				}
-				break;
 			}
-
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	private void clickFolderRightClickOptions(WebDriver driver, String optionType) throws InterruptedException {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+	private void clickFolderRightClickOptions(WebDriver driver, String optionType) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try{
+			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
-		List<Element> dropboxfilefolderrightclickoptions  = dbp.dropboxfilefolderrightclickoptions(driver).getChildElements();		
-		for(int i=0;i<dropboxfilefolderrightclickoptions.size();i++){
-			if(dropboxfilefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
-				dropboxfilefolderrightclickoptions.get(i).click();
-				Thread.sleep(10000);
-				break;
+			List<Element> dropboxfilefolderrightclickoptions  = dbp.dropboxfilefolderrightclickoptions(driver).getChildElements();		
+			for(int i=0;i<dropboxfilefolderrightclickoptions.size();i++){
+				if(dropboxfilefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
+					dropboxfilefolderrightclickoptions.get(i).click();
+					Thread.sleep(10000);
+					break;
+				}
 			}
+		}catch(Exception e){
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	private void clickCreateDropBoxFolderButton(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
 			dbp.dropboxcreatefolderbutton(driver).click();
 			Thread.sleep(10000);	
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	private void typeDropBoxFolderTextbox(WebDriver driver, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
@@ -410,324 +405,28 @@ public class DropBoxAction{
 			dbp.dropboxcreatefoldernametextbox(driver).type(folderName);
 			Thread.sleep(2000);	
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	private void clickDropboxMenuActionsLink(WebDriver driver, String actionName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
 			dbp.dropboxmenuactionslink(driver, actionName).click();
 			Thread.sleep(10000);	
 
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	
-	/**
-	 * autoit file upload chrome
-	 * @param fileName
-	 */
-	public void autoitFileUploadChrome(String fileName){
-
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadchrome.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-	}
-
-	  /**
-	  * autoit file upload firefox
-	  * @param fileName
-	  */
-	public void autoitFileUploadFirefox(String fileName){
-
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadfirefox.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-	}
-	
-	
-	/*
-
-	public void uploadFile(WebDriver driver, String optionType, String fileName) {
-		try {
-			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-			int countBefore = getFileCount(driver);
-
-			clickMyDriveButton(driver, "My Drive");
-			clickCreateOptionType(driver, optionType);
-			if(driver instanceof FirefoxDriver){
-				autoitFileUploadFirefox(fileName);
-			}else{
-				autoitFileUploadChrome(fileName);
-			}
-			int countAfter = getFileCount(driver);;	
-
-			Assert.assertTrue(countAfter==countBefore+1,"File upload failed as new folder is not uploaded");
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
-
-
-	}
-
-	public void downloadFile(WebDriver driver, String fileName) {
-		try {
-			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
-			int fileCountBefore = dir.listFiles(fileFilter).length;
-
-			rightClickOnFileName(driver,fileName);
-			clickFileRightClickOptions(driver,"Download");
-
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter("Test*.docx");
-			int fileCountAfter = dir.listFiles(fileFilter).length;			
-			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-	}
-
-	public void deleteFile(WebDriver driver, String fileName) {
-		try {
-			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-			int countBefore = getFileCount(driver,fileName);
-
-			rightClickOnFileName(driver,fileName);
-			clickFileRightClickOptions(driver,"Remove");
-
-			int countAfter = getFileCount(driver,fileName);	
-
-			Assert.assertTrue(countAfter==countBefore-1,"Folder deletion failed as new folder is not deleted");
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-	}
-
-
-	 *//**
-	 * autoit file upload chrome
-	 * @param fileName
-	 *//*
-	public void autoitFileUploadChrome(String fileName){
-
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadchrome.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-	}
-
-	  *//**
-	  * autoit file upload firefox
-	  * @param fileName
-	  *//*
-	public void autoitFileUploadFirefox(String fileName){
-
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadfirefox.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-
-	}
-
-	private void typeMyDriveFolderTextbox(WebDriver driver, String folderName) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		try {
-			List<Element> mydrivefoldertextbox  = dbp.mydrivefoldertextbox(driver).getChildElements();		
-			if(mydrivefoldertextbox.size()==3){
-				mydrivefoldertextbox.get(mydrivefoldertextbox.size()-1).clear();
-				mydrivefoldertextbox.get(mydrivefoldertextbox.size()-1).type(folderName);
-				dbp.mydrivefoldercreatebutton(driver).click();
-				Thread.sleep(10000);
-			}
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	   *//**
-	   * Click on my drive button
-	   * @param driver
-	   * @param itemType
-	   * @throws InterruptedException
-	   *//*
-	private void clickMyDriveButton(WebDriver driver, String itemType) throws InterruptedException {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-		List<Element> mydrivebutton  = dbp.mydrivebutton(driver).getChildElements();		
-		for(int i=0;i<mydrivebutton.size();i++){
-			if(mydrivebutton.get(i).getText().trim().contains(itemType)){
-				mydrivebutton.get(i).click();
-				Thread.sleep(10000);
-				break;
-			}
-		}
-	}
-
-	    *//**
-	    * Click on create/upload link
-	    * @param driver
-	    * @param itemType
-	    * @throws InterruptedException
-	    *//*
-	private void clickCreateOptionType(WebDriver driver, String optionType) throws InterruptedException {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-		List<Element> mydrivebuttondropdown  = dbp.mydrivebuttondropdown(driver).getChildElements();		
-		for(int i=0;i<mydrivebuttondropdown.size();i++){
-			if(mydrivebuttondropdown.get(i).getText().trim().contains(optionType)){
-				mydrivebuttondropdown.get(i).click();
-				Thread.sleep(10000);
-				break;
-			}
-		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 
 
-	     *//**
-	     * get folder count
-	     * @param driver
-	     * @return
-	     *//*
-	public int getFileCount(WebDriver driver) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> mydrivefileelement  = dbp.mydrivefileelement(driver).getChildElements();
-		return mydrivefileelement.size();	
-	}
 
 
-
-	      *//**
-	      * get all folder names
-	      * @param driver
-	      * @return
-	      *//*
-	public void rightClickOnFolderName(WebDriver driver,String folderName) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> mydrivefolderelement  = dbp.mydrivefolderelement(driver,folderName).getChildElements();
-		String[] list = new String[mydrivefolderelement.size()];
-		for(int i=0;i<mydrivefolderelement.size();i++){
-			mydrivefolderelement.get(i).mouseOverRightClick(driver);
-			break;
-		}
-
-
-	}
-
-	private void clickFolderRightClickOptions(WebDriver driver, String optionType) throws InterruptedException {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-		List<Element> mydrivefolderrightclickoptions  = dbp.mydrivefolderrightclickoptions(driver).getChildElements();		
-		for(int i=0;i<mydrivefolderrightclickoptions.size();i++){
-			if(mydrivefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
-				mydrivefolderrightclickoptions.get(i).click();
-				Thread.sleep(10000);
-				break;
-			}
-		}
-	}
-
-	       *//**
-	       * get all folder names
-	       * @param driver
-	       * @return
-	       *//*
-	public void rightClickOnFileName(WebDriver driver,String fileName) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> mydrivetypefileelement  = dbp.mydrivetypefileelement(driver,fileName).getChildElements();
-		String[] list = new String[mydrivetypefileelement.size()];
-		for(int i=0;i<mydrivetypefileelement.size();i++){
-			mydrivetypefileelement.get(i).mouseOverRightClick(driver);
-			break;
-		}
-
-
-	}
-
-	private void clickFileRightClickOptions(WebDriver driver, String optionType) throws InterruptedException {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-
-		List<Element> mydrivefolderrightclickoptions  = dbp.mydrivefolderrightclickoptions(driver).getChildElements();		
-		for(int i=0;i<mydrivefolderrightclickoptions.size();i++){
-			if(mydrivefolderrightclickoptions.get(i).getText().trim().contains(optionType)){
-				mydrivefolderrightclickoptions.get(i).click();
-				Thread.sleep(10000);
-				break;
-			}
-		}
-	}
-
-	        *//**
-	        * get folder count
-	        * @param driver
-	        * @return
-	        *//*
-	public int getFileCount(WebDriver driver,String fileName) {
-		DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
-		List<Element> mydrivetypefileelement  = dbp.mydrivetypefileelement(driver, fileName).getChildElements();
-		return mydrivetypefileelement.size();	
-	}
-
-
-	         */
 }

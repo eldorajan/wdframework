@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Box Test Suite">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="wdframework.listeners.SuiteListener" />
+		<listener class-name="wdframework.listeners.MethodListener" />
+		<listener class-name="wdframework.listeners.ScreenShotListener" />
+		<listener class-name="wdframework.listeners.PriorityListener" />
+	</listeners>
+
+	<parameter name="browser" value="chrome" />
+	<parameter name="mode" value="local" />
+	<parameter name="baseurl" value="https://app.box.com/login/" />
+	
+	<test name="Box Tests">
+	<groups>
+			<run>
+				<include name="sanity"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="wdframework.tests.box.BoxTests" />
+		</classes>
+	</test>
+
+</suite>

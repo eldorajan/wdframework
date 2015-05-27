@@ -68,6 +68,10 @@ public class ScreenShotListener extends TestListenerAdapter implements ISuiteLis
 
 	}
 
+	/**
+	 * delete directory
+	 * @param path
+	 */
 	public void deleteDirectory(File path) {
 		if (path == null)
 			return;

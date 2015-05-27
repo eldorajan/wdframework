@@ -10,7 +10,7 @@ import wdframework.webelements.HyperLink;
 import wdframework.webelements.TextBox;
 
 /**
- * Onedrive page
+ * Google Drive page
  * @author Eldo Rajan
  *
  */

@@ -145,7 +145,7 @@
 						<baseurl>${baseurl}</baseurl>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/tests/default.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/tests/default/default.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

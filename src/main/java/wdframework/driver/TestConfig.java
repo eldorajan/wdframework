@@ -7,6 +7,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+/**
+ * Test Config
+ * @author Eldo Rajan
+ *
+ */
 public class TestConfig {
 
 	private static final String CONFIG_MODE = "mode";
@@ -57,7 +62,10 @@ public class TestConfig {
 		
 	}
 
-	
+	/**
+	 * load properties file
+	 * @return
+	 */
 	private Properties loadPropertiesFile() {
 		Properties result = new Properties();
 		try {
@@ -86,14 +94,30 @@ public class TestConfig {
 		return result;
 	}
 
+	/**
+	 * get property or null
+	 * @param name
+	 * @return
+	 */
 	public String getPropertyOrNull(String name) {
 		return getProperty(name, false);
 	}
 
+	/**
+	 * get property or throw exception
+	 * @param name
+	 * @return
+	 */
 	public String getPropertyOrThrowException(String name) {
 		return getProperty(name, true);
 	}
 
+	/**
+	 * get property
+	 * @param name
+	 * @param forceExceptionIfNotDefined
+	 * @return
+	 */
 	private String getProperty(String name, boolean forceExceptionIfNotDefined) {
 		String result;
 		if ((result = System.getProperty(name, null)) != null && result.length() > 0) {
@@ -111,6 +135,11 @@ public class TestConfig {
 		return result;
 	}
 
+	/**
+	 * get property from properties file
+	 * @param name
+	 * @return
+	 */
 	private String getPropertyFromPropertiesFile(String name) {
 		Object result = properties.get(name);
 		if (result == null) {
@@ -120,58 +149,114 @@ public class TestConfig {
 		}
 	}
 
+	/**
+	 * get mode
+	 * @return
+	 */
 	public DriverType getMode() {
 		return mode;
 	}
 	
+	/**
+	 * get huburl
+	 * @return
+	 */
 	public String getHubUrl() {
 		return huburl;
 	}
 
+	/**
+	 * get base url
+	 * @return
+	 */
 	public String getBaseUrl() {
 		return baseUrl;
 	}
 
+	/**
+	 * get browser
+	 * @return
+	 */
 	public BrowserType getBrowser() {
 		return browser;
 	}
 	
+	/**
+	 * get chrome driver
+	 * @return
+	 */
 	public String getChromeDriver() {
 		return chromedriver;
 	}
 
+	/**
+	 * get ie driver
+	 * @return
+	 */
 	public String getIEDriver() {
 		return iedriver;
 	}
 	
+	/**
+	 * get phantom js driver
+	 * @return
+	 */
 	public String getPhantomJsDriver() {
 		return phantomjsdriver;
 	}
 	
+	/**
+	 * set mode
+	 * @param mode
+	 */
 	public void setMode(DriverType mode) {
 		this.mode=mode;
 	}
 	
+	/**
+	 * set hub url
+	 * @param huburl
+	 */
 	public void setHubUrl(String huburl) {
 		this.huburl= huburl;
 	}
 
+	/**
+	 * set base url
+	 * @param baseUrl
+	 */
 	public void setBaseUrl(String baseUrl) {
 		this.baseUrl= baseUrl;
 	}
 
+	/**
+	 * set browser
+	 * @param browser
+	 */
 	public void setBrowser(BrowserType browser) {
 		this.browser= browser;
 	}
 	
+	/**
+	 * set chrome driver
+	 * @param chromedriver
+	 */
 	public void setChromeDriver(String chromedriver) {
 		this.phantomjsdriver= chromedriver;
 	}
 
+	/**
+	 * set ie driver
+	 * @param iedriver
+	 */
 	public void setIEDriver(String iedriver) {
 		this.iedriver= iedriver;
 	}
 	
+	/**
+	 * set phantom js driver
+	 * @param phantomjsdriver
+	 */
 	public void setPhantomJsDriver(String phantomjsdriver) {
 		this.phantomjsdriver= phantomjsdriver;
 	}

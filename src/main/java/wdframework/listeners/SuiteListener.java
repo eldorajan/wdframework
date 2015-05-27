@@ -1,7 +1,5 @@
 package wdframework.listeners;
 
-import java.io.File;
-
 import org.testng.IExecutionListener;
 
 import wdframework.logger.Logger;
@@ -13,9 +11,7 @@ import wdframework.logger.Logger;
  */
 public class SuiteListener implements IExecutionListener {
 	private long startTime;
-	public String reportLocation = System.getProperty("user.dir")+File.separator
-			+"target" + File.separator + "reports" + File.separator + "reports.html";
-
+	
 	@Override
 	public void onExecutionStart() {
 		startTime = System.currentTimeMillis();

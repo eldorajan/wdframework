@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -24,11 +26,11 @@ public class ElementList <T extends Element>{
 	}
 	
 	public ElementList(WebDriver driver,By by){
-		this.elementList = driver.findElements(by);
+		this.elementList = findElements(driver, by);
 	}
 	
 	public ElementList(WebDriver driver, String locator) {
-		this.elementList = driver.findElements(getBy(locator));
+		this.elementList = findElements(driver, getBy(locator));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -51,6 +53,16 @@ public class ElementList <T extends Element>{
 
 	public void setElementList(List<WebElement> elementList) {
 		this.elementList = elementList;
+	}
+	
+	public List<WebElement> findElements(WebDriver driver,By by) {
+		try {
+			return driver.findElements(by);
+		} catch (NoSuchElementException e) {
+			throw new NoSuchElementException("can't findElements " + by + " in WebElement[" + toString() + "]", e);
+		} catch (StaleElementReferenceException e) {
+			throw new StaleElementReferenceException("WebElement[" + toString() + "] has been removed (unable to find " + by + ")", e);
+		}		
 	}
 
 	public By getBy(String locator) {

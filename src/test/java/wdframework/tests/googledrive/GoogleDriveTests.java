@@ -41,11 +41,11 @@ public class GoogleDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFolder() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
-		googledrive.deleteFolder(getWebDriver(), GoogleDriveConstants.Folder, "Sample");
+		googledrive.deleteFolder(getWebDriver(), "Sample");
 	}
 	
 	/**
-	 * Upload file
+	 * Upload File Test
 	 */
 	@Priority(4)
 	@Test(groups = { "sanity" })
@@ -55,7 +55,7 @@ public class GoogleDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Download file
+	 * Download File Test
 	 */
 	@Priority(5)
 	@Test(groups = { "sanity" })
@@ -65,11 +65,11 @@ public class GoogleDriveTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete uploaded file
+	 * Delete File Test
 	 */
 	@Priority(6)
 	@Test(groups = { "sanity" })
-	public void deleteUploadedWordFile() {
+	public void deleteFile() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
 		googledrive.deleteFile(getWebDriver(), "Test.docx");			
 	}

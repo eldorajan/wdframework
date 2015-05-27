@@ -1,11 +1,20 @@
 package wdframework.driver;
 
-
+/**
+ * Driver Type
+ * @author Eldo Rajan
+ *
+ */
 public enum DriverType {
 	Local("local"),
 	Grid("grid"),
 	Cloud("cloud");
 
+	/**
+	 * get driver type
+	 * @param driverType
+	 * @return
+	 */
 	public static DriverType getDriverType(final String driverType) {
 		DriverType dType=null;
 		try{
@@ -25,11 +34,15 @@ public enum DriverType {
 	}
 
 	private String driverType;
-
+	
 	DriverType(final String type) {
 		this.driverType = type;
 	}
 
+	/**
+	 * get driver type
+	 * @return
+	 */
 	public String getDriverType() {
 		return this.driverType;
 	}

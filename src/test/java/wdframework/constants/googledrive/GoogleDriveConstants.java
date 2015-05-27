@@ -2,7 +2,7 @@ package wdframework.constants.googledrive;
 
 
 /**
- * One Drive Constants
+ * Google Drive Constants
  * @author Eldo Rajan
  *
  */

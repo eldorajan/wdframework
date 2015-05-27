@@ -1,6 +1,10 @@
 package wdframework.driver;
 
-
+/**
+ * Browser Types
+ * @author Eldo Rajan
+ *
+ */
 public enum BrowserType {
 	Firefox("*firefox"),
 	InternetExplorer("*ie"),

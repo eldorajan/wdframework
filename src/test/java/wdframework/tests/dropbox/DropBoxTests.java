@@ -7,7 +7,7 @@ import wdframework.listeners.Priority;
 import wdframework.constants.dropbox.DropBoxConstants;
 
 /**
- * Onedrive Test Suite
+ * Dropbox Test Suite
  * @author Eldo Rajan
  *
  */
@@ -33,7 +33,7 @@ public class DropBoxTests extends CommonTest{
 	}
 	
 	/**
-	 * Create Folder Test
+	 * Download Folder Test
 	 */
 	@Priority(3)
 	@Test(groups = { "sanity" })
@@ -53,7 +53,7 @@ public class DropBoxTests extends CommonTest{
 	}
 	
 	/**
-	 * Upload file
+	 * Upload File Test
 	 */
 	@Priority(4)
 	@Test(groups = { "sanity" })
@@ -63,7 +63,7 @@ public class DropBoxTests extends CommonTest{
 	}
 	
 	/**
-	 * Download file
+	 * Download File Test
 	 */
 	@Priority(5)
 	@Test(groups = { "sanity" })
@@ -73,7 +73,7 @@ public class DropBoxTests extends CommonTest{
 	}
 	
 	/**
-	 * Delete uploaded file
+	 * Delete File Test
 	 */
 	@Priority(6)
 	@Test(groups = { "sanity" })

@@ -3,6 +3,7 @@ package wdframework.action;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import wdframework.logger.Logger;
 import wdframework.pagefactory.AdvancedPageFactory;
 import wdframework.pageobjects.SearchPage;
 
@@ -11,7 +12,7 @@ import wdframework.pageobjects.SearchPage;
  * @author Eldo Rajan
  *
  */
-public class SearchAction{
+public class SearchAction extends Action{
 
 	/**
 	 * Sample Action method
@@ -19,7 +20,7 @@ public class SearchAction{
 	 * @param text
 	 */
 	public void searchInGoogle(WebDriver driver,String text){
-		
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			SearchPage sp =  AdvancedPageFactory.getPageObject(driver,SearchPage.class);
 			
@@ -27,19 +28,19 @@ public class SearchAction{
 			sp.searchelement(driver).type(text);
 			sp.searchelement(driver).submit();
 			
-			Thread.sleep(5000);
+			sp.searchlogo(driver).waitForLoading(driver);
 			
 			sp.searchlogo(driver).waitForElementPresent(driver);
 			sp.searchlogo(driver).waitForElementToBeVisible(driver);
+			Logger.info("****************"+driver.getTitle()+"****************");
 			Assert.assertTrue(sp.searchlogo(driver).isElementVisible());
 			Assert.assertTrue(driver.getTitle().contains(text));
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
 		
-		
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 	
 }
