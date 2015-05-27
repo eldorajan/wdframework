@@ -1,7 +1,15 @@
 wd.common
 wdframework.action
+wdframework.action.box
+wdframework.action.dropbox
+wdframework.action.fileupload
+wdframework.action.googledrive
 wdframework.action.onedrive
+wdframework.asserts
 wdframework.common
+wdframework.constants.box
+wdframework.constants.dropbox
+wdframework.constants.googledrive
 wdframework.constants.onedrive
 wdframework.driver
 wdframework.listeners
@@ -9,5 +17,8 @@ wdframework.logger
 wdframework.pagefactory
 wdframework.pageobjects
 wdframework.tests
+wdframework.tests.box
+wdframework.tests.dropbox
+wdframework.tests.googledrive
 wdframework.tests.onedrive
 wdframework.webelements
