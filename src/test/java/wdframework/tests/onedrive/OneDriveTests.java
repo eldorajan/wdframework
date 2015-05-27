@@ -3,7 +3,7 @@ package wdframework.tests.onedrive;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
-import wd.common.CommonTest;
+import wdframework.common.CommonTest;
 import wdframework.listeners.Priority;
 import wdframework.constants.onedrive.OneDriveConstants;
 

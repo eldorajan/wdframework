@@ -2,7 +2,7 @@ package wdframework.tests.dropbox;
 
 import org.testng.annotations.Test;
 
-import wd.common.CommonTest;
+import wdframework.common.CommonTest;
 import wdframework.listeners.Priority;
 import wdframework.constants.dropbox.DropBoxConstants;
 

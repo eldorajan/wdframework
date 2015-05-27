@@ -1,4 +1,4 @@
-package wd.common;
+package wdframework.common;
 
 import wdframework.action.SearchAction;
 import wdframework.action.box.BoxAction;

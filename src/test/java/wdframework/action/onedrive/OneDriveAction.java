@@ -16,6 +16,7 @@ import org.testng.Assert;
 
 import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
+import wdframework.action.fileupload.FileUploadAction;
 import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
 import wdframework.pageobjects.OneDrivePage;
@@ -308,7 +309,7 @@ public class OneDriveAction{
 	public void uploadFile(WebDriver driver, String fileName) {
 		try {
 			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
-
+			FileUploadAction fu = new FileUploadAction();
 			selectQuickHeaders(driver, OneDriveConstants.Files);
 
 			int countBefore = getFileCount(driver);	
@@ -318,11 +319,11 @@ public class OneDriveAction{
 			if(driver instanceof FirefoxDriver){
 				clickCreateManageButton(driver, OneDriveConstants.Upload);
 				clickUploadItemType(driver, OneDriveConstants.Upload);
-				autoitFileUploadFirefox(fileName);
+				fu.autoitFileUploadFirefox(fileName);
 			}else{
 				clickCreateManageButton(driver, OneDriveConstants.Upload);
 				clickUploadItemType(driver, OneDriveConstants.Files);
-				autoitFileUploadChrome(fileName);
+				fu.autoitFileUploadChrome(fileName);
 			}
 			driver.navigate().refresh();
 			Thread.sleep(10000);			
@@ -805,47 +806,4 @@ public class OneDriveAction{
 		}
 		
 	}
-	
-	/**
-	 * autoit file upload chrome
-	 * @param fileName
-	 */
-	public void autoitFileUploadChrome(String fileName){
-		
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadchrome.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-	}
-	
-	/**
-	 * autoit file upload firefox
-	 * @param fileName
-	 */
-	public void autoitFileUploadFirefox(String fileName){
-		
-		File fileLocation   =  new File(System.getProperty("user.dir")+File.separator+"src/test/resources/data");
-		String absolutePath =   fileLocation.getAbsolutePath() + "\\" + fileName;
-		File exeLocation 	= new File("src/test/resources/utils/fileuploadfirefox.exe");
-		String exeAbsolutePath  =  exeLocation.getAbsolutePath().replace("\\", "\\\\");                    
-		try {
-			new ProcessBuilder(exeAbsolutePath,
-					absolutePath, "Open").start();
-			Thread.sleep(10000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-	}
-	
 }

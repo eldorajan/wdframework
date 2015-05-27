@@ -2,7 +2,7 @@ package wdframework.tests.googledrive;
 
 import org.testng.annotations.Test;
 
-import wd.common.CommonTest;
+import wdframework.common.CommonTest;
 import wdframework.listeners.Priority;
 import wdframework.constants.googledrive.GoogleDriveConstants;
 

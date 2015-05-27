@@ -2,7 +2,7 @@ package wdframework.tests;
 
 import org.testng.annotations.Test;
 
-import wd.common.CommonTest;
+import wdframework.common.CommonTest;
 
 /**
  * Sample Test Suite
