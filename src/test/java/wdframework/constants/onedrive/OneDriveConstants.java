@@ -8,8 +8,8 @@ package wdframework.constants.onedrive;
  */
 public class OneDriveConstants  {
 
-	public static String username="XXXX";
-	public static String password="XXXX";
+	public static String username="theautomationtester87@outlook.com";
+	public static String password="MaveRick@1987";
 	public static String Folder="Folder";
 	public static String Word="Word document";
 	public static String Excel="Excel workbook";
@@ -35,5 +35,14 @@ public class OneDriveConstants  {
 	public static String Manage="Manage";
 	public static String Create="Create";
 	public static String FolderActions="Folder actions";
+	
+	public static String LoggedInHeader="Files - OneDrive";
+	public static String LoggedOutHeader="OneDrive";
+	
+	public static String SampleFolderName="Sample";
+	public static String SampleFileName="Test.docx";
+	public static String SampleFile="Test";
+	public static String SampleFileExtension=".docx";
+	public static String SampleFolderExtension="*.zip";
 
 }

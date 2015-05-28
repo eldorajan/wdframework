@@ -34,6 +34,14 @@ public class OneDrivePage extends BasePage{
 		return new HyperLink(driver,getLocator());
 	}
 	
+	public Button usernamebuttonintopbar(WebDriver driver){
+		return new Button(driver,getLocator());
+	}
+	
+	public HyperLink usernamesignoutbuttonintopbar(WebDriver driver){
+		return new HyperLink(driver,getLocator());
+	}
+	
 	public Button createbutton(WebDriver driver){
 		return new Button(driver,getLocator());
 	}

@@ -29,7 +29,7 @@ public class DropBoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createFolder() {
 		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
-		dropbox.createFolder(getWebDriver(), DropBoxConstants.NewFolder, "Sample");
+		dropbox.createFolder(getWebDriver(), DropBoxConstants.NewFolder, DropBoxConstants.SampleFolderName);
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class DropBoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void downloadFolder() {
 		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
-		dropbox.downloadFolder(getWebDriver(), "Sample");
+		dropbox.downloadFolder(getWebDriver(), DropBoxConstants.SampleFolderName);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class DropBoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFolder() {
 		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
-		dropbox.deleteFolder(getWebDriver(), "Sample");
+		dropbox.deleteFolder(getWebDriver(), DropBoxConstants.SampleFolderName);
 	}
 	
 	/**
@@ -59,7 +59,7 @@ public class DropBoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void uploadFile() {
 		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
-		dropbox.uploadFile(getWebDriver(),DropBoxConstants.UploadFiles, "Test.docx");		
+		dropbox.uploadFile(getWebDriver(),DropBoxConstants.UploadFiles, DropBoxConstants.SampleFileName);		
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public class DropBoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void downloadFile() {
 		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
-		dropbox.downloadFile(getWebDriver(), "Test.docx");			
+		dropbox.downloadFile(getWebDriver(), DropBoxConstants.SampleFileName);			
 	}
 	
 	/**
@@ -79,7 +79,16 @@ public class DropBoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFile() {
 		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
-		dropbox.deleteFile(getWebDriver(), "Test.docx");			
+		dropbox.deleteFile(getWebDriver(), DropBoxConstants.SampleFileName);			
 	}
 	
+	/**
+	 * Logout Test
+	 */
+	@Priority(7)
+	@Test(groups = { "sanity" })
+	public void logout() {
+		dropbox.login(getWebDriver(), DropBoxConstants.username, DropBoxConstants.password);
+		dropbox.logout(getWebDriver());
+	}
 }

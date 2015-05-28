@@ -18,8 +18,12 @@ import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
 import wdframework.action.Action;
 import wdframework.action.fileupload.FileUploadAction;
+import wdframework.constants.CommonConstants;
+import wdframework.constants.dropbox.DropBoxConstants;
+import wdframework.constants.googledrive.GoogleDriveConstants;
 import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
+import wdframework.pageobjects.DropBoxPage;
 import wdframework.pageobjects.GoogleDrivePage;
 import wdframework.pageobjects.OneDrivePage;
 import wdframework.webelements.CheckBox;
@@ -114,7 +118,7 @@ public class GoogleDriveAction extends Action{
 			gdp.logo(driver).waitForElementToBeVisible(driver);
 
 			Assert.assertTrue(gdp.logo(driver).isElementVisible());
-			Assert.assertTrue(driver.getTitle().contains("My Drive - Google Drive"));
+			Assert.assertTrue(driver.getTitle().contains(GoogleDriveConstants.LoggedInHeader));
 
 		} catch (Exception e) {
 			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
@@ -122,6 +126,30 @@ public class GoogleDriveAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
+	/**
+	 * logout of googledrive
+	 * @param driver
+	 */
+	public void logout(WebDriver driver,String username){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+
+			Assert.assertTrue(gdp.usernamebuttonintopbar(driver,username).isElementVisible());
+			clickUserNameButton(driver, username);
+			clickSignOutButtonInUserNameButtonDropdown(driver);
+			
+			gdp.username(driver).waitForLoading(driver);
+			gdp.password(driver).waitForLoading(driver);
+			gdp.loginbutton(driver).waitForLoading(driver);
+			Logger.info(driver.getTitle());
+			Assert.assertTrue(driver.getTitle().contains(GoogleDriveConstants.LoggedOutHeader));
+
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
 
 	/**
 	 * create folder
@@ -137,7 +165,7 @@ public class GoogleDriveAction extends Action{
 
 			int countBefore = getFolderCount(driver,folderName);
 
-			clickMyDriveButton(driver, "My Drive");
+			clickMyDriveButton(driver, GoogleDriveConstants.MyDrive);
 			clickCreateOptionType(driver, optionType);
 			typeMyDriveFolderTextbox(driver,folderName);			
 
@@ -167,7 +195,7 @@ public class GoogleDriveAction extends Action{
 
 			int countBefore = getFolderCount(driver,folderName);
 			rightClickOnFolderName(driver,folderName);
-			clickFolderRightClickOptions(driver,"Remove");
+			clickFolderRightClickOptions(driver,GoogleDriveConstants.Remove);
 
 			int countAfter = getFolderCount(driver,folderName);	
 
@@ -194,7 +222,7 @@ public class GoogleDriveAction extends Action{
 
 			int countBefore = getFileCount(driver);
 
-			clickMyDriveButton(driver, "My Drive");
+			clickMyDriveButton(driver, GoogleDriveConstants.MyDrive);
 			clickCreateOptionType(driver, optionType);
 			if(driver instanceof FirefoxDriver){
 				fu.autoitFileUploadFirefox(fileName);
@@ -217,19 +245,19 @@ public class GoogleDriveAction extends Action{
 	 */
 	public void downloadFile(WebDriver driver, String fileName) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
-
+		String[] files = fileName.split(".");
 		try {
 			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
 
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
+			File dir = new File(CommonConstants.downloadDir);
+			FileFilter fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountBefore = dir.listFiles(fileFilter).length;
 
 			rightClickOnFileName(driver,fileName);
-			clickFileRightClickOptions(driver,"Download");
+			clickFileRightClickOptions(driver,GoogleDriveConstants.Download);
 
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter("Test*.docx");
+			dir = new File(CommonConstants.downloadDir);
+			fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountAfter = dir.listFiles(fileFilter).length;			
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
 
@@ -253,7 +281,7 @@ public class GoogleDriveAction extends Action{
 			int countBefore = getFileCount(driver,fileName);
 
 			rightClickOnFileName(driver,fileName);
-			clickFileRightClickOptions(driver,"Remove");
+			clickFileRightClickOptions(driver,GoogleDriveConstants.Remove);
 
 			int countAfter = getFileCount(driver,fileName);	
 
@@ -496,6 +524,37 @@ public class GoogleDriveAction extends Action{
 		return mydrivetypefileelement.size();	
 	}
 
+	/**
+	 * click username button 
+	 * @param driver
+	 */
+	public void clickUserNameButton(WebDriver driver,String username) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+			gdp.usernamebuttonintopbar(driver,username).mouseOverClick(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * click signout button 
+	 * @param driver
+	 */
+	public void clickSignOutButtonInUserNameButtonDropdown(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			GoogleDrivePage gdp =  AdvancedPageFactory.getPageObject(driver,GoogleDrivePage.class);
+			gdp.usernamebuttonintopbardropdown(driver).mouseOverClick(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
 
 
 }

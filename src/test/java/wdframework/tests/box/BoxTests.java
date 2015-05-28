@@ -12,8 +12,6 @@ import wdframework.constants.box.BoxConstants;
  *
  */
 public class BoxTests extends CommonTest{
-	String wordFileName="";String excelFileName="";String powerpointFileName="";
-	String onenoteFileName="";String excelsurveyFileName="";String plaintextFileName="";
 	
 	/**
 	 * Login Test
@@ -31,7 +29,7 @@ public class BoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createFolder() {
 		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
-		box.createFolder(getWebDriver(), "Sample");
+		box.createFolder(getWebDriver(), BoxConstants.SampleFolderName);
 	}
 
 	/**
@@ -41,7 +39,7 @@ public class BoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void downloadFolder() {
 		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
-		box.downloadFolder(getWebDriver(), "Sample");
+		box.downloadFolder(getWebDriver(), BoxConstants.SampleFolderName);
 	}
 	
 	/**
@@ -51,7 +49,7 @@ public class BoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFolder() {
 		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
-		box.deleteFolder(getWebDriver(), "Sample");
+		box.deleteFolder(getWebDriver(), BoxConstants.SampleFolderName);
 	}
 	
 	/**
@@ -61,7 +59,7 @@ public class BoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void uploadFile() {
 		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
-		box.uploadFile(getWebDriver(), "Test.docx");
+		box.uploadFile(getWebDriver(), BoxConstants.SampleFileName);
 	}
 
 	/**
@@ -71,7 +69,7 @@ public class BoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void downloadFile() {
 		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
-		box.downloadFile(getWebDriver(), "Test.docx");
+		box.downloadFile(getWebDriver(), BoxConstants.SampleFileName);
 	}
 	
 	/**
@@ -81,7 +79,37 @@ public class BoxTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFile() {
 		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
-		box.deleteFile(getWebDriver(), "Test.docx");
+		box.deleteFile(getWebDriver(), BoxConstants.SampleFileName);
+	}
+	
+	/**
+	 * Folder properties test
+	 */
+	@Priority(8)
+	@Test(groups = { "sanity" })
+	public void getFolderProperties() {
+		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
+		box.getFolderProperties(getWebDriver(), BoxConstants.SampleFolderName);
+	}
+	
+	/**
+	 * File properties test
+	 */
+	@Priority(9)
+	@Test(groups = { "sanity" })
+	public void getFileProperties() {
+		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
+		box.getFileProperties(getWebDriver(), BoxConstants.SampleFileName);
+	}
+	
+	/**
+	 * Logout Test
+	 */
+	@Priority(10)
+	@Test(groups = { "sanity" })
+	public void logout() {
+		box.login(getWebDriver(), BoxConstants.username, BoxConstants.password);
+		box.logout(getWebDriver());
 	}
 	
 }

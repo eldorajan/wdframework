@@ -17,6 +17,7 @@ import org.testng.Assert;
 import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
 import wdframework.action.fileupload.FileUploadAction;
+import wdframework.constants.CommonConstants;
 import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
 import wdframework.pageobjects.OneDrivePage;
@@ -109,7 +110,7 @@ public class OneDriveAction{
 			odp.logo(driver).waitForElementToBeVisible(driver);
 
 			Assert.assertTrue(odp.logo(driver).isElementVisible());
-			Assert.assertTrue(driver.getTitle().contains("Files - OneDrive"));
+			Assert.assertTrue(driver.getTitle().contains(OneDriveConstants.LoggedInHeader));
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -117,6 +118,32 @@ public class OneDriveAction{
 		}
 
 
+	}
+	
+	
+	/**
+	 * logout of onedrive
+	 * @param driver
+	 */
+	public void logout(WebDriver driver,String username){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+
+			Assert.assertTrue(odp.usernamebuttonintopbar(driver).isElementVisible());
+			clickUserNameButton(driver);
+			clickSignOutButtonInUserNameButtonDropdown(driver);
+			
+			odp.username(driver).waitForLoading(driver);
+			odp.password(driver).waitForLoading(driver);
+			odp.loginbutton(driver).waitForLoading(driver);
+			Logger.info(driver.getTitle());
+			Assert.assertTrue(driver.getTitle().contains(OneDriveConstants.LoggedOutHeader));
+
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	/**
@@ -348,21 +375,22 @@ public class OneDriveAction{
 	 * @param fileName
 	 */
 	public void downloadFile(WebDriver driver, String fileName) {
+		String[] files = fileName.split(".");
 		try {
 			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
 			selectQuickHeaders(driver, OneDriveConstants.Files);
 
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
+			File dir = new File(CommonConstants.downloadDir);
+			FileFilter fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountBefore = dir.listFiles(fileFilter).length;
 			
 			hoverOverFileName(driver,fileName);
 			selectInputBoxFileName(driver,fileName);
 			clickManageLinks(driver, OneDriveConstants.Download);
 			
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter("Test*.docx");
+			dir = new File(CommonConstants.downloadDir);
+			fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountAfter = dir.listFiles(fileFilter).length;			
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
 			
@@ -396,7 +424,7 @@ public class OneDriveAction{
 	 * @param itemType
 	 * @throws InterruptedException
 	 */
-	private void clickCreateItemType(WebDriver driver, String itemType) throws InterruptedException {
+	public void clickCreateItemType(WebDriver driver, String itemType) throws InterruptedException {
 		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
 		List<Element> createDropdown  = odp.createdropdown(driver).getChildElements();		
@@ -416,7 +444,7 @@ public class OneDriveAction{
 	 * @param itemType
 	 * @throws InterruptedException
 	 */
-	private void clickUploadItemType(WebDriver driver, String itemType) throws InterruptedException {
+	public void clickUploadItemType(WebDriver driver, String itemType) throws InterruptedException {
 		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
 		List<Element> uploaddropdown  = odp.uploaddropdown(driver).getChildElements();		
@@ -571,7 +599,7 @@ public class OneDriveAction{
 	 * @param createType
 	 * @throws InterruptedException
 	 */
-	private void clickCreateManageButton(WebDriver driver, String createType) throws InterruptedException {
+	public void clickCreateManageButton(WebDriver driver, String createType) throws InterruptedException {
 		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
 		List<Element> createmanagebutton  = odp.createmanagebutton(driver).getChildElements();		
@@ -710,7 +738,7 @@ public class OneDriveAction{
 	 * @param createType
 	 * @throws InterruptedException
 	 */
-	private void clickManageLinks(WebDriver driver, String createType) throws InterruptedException {
+	public void clickManageLinks(WebDriver driver, String createType) throws InterruptedException {
 		OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
 
 		List<Element> managelinks  = odp.managelinks(driver).getChildElements();		
@@ -761,7 +789,7 @@ public class OneDriveAction{
 	 * @param winHandleBefore
 	 * @throws InterruptedException
 	 */
-	private void revertToOldWindow(WebDriver driver,
+	public void revertToOldWindow(WebDriver driver,
 			String winHandleBefore) throws InterruptedException {
 		switchToNewWindowAndClose(driver, winHandleBefore);
 		
@@ -774,7 +802,7 @@ public class OneDriveAction{
 	 * @param winHandleBefore
 	 * @throws InterruptedException
 	 */
-	private void switchToNewWindowAndClose(WebDriver driver,
+	public void switchToNewWindowAndClose(WebDriver driver,
 			String winHandleBefore) throws InterruptedException {
 		Set<String> winHandles =  driver.getWindowHandles();
 		for(String w:winHandles){
@@ -794,7 +822,7 @@ public class OneDriveAction{
 	 * @param winHandleBefore
 	 * @throws InterruptedException
 	 */
-	private void switchToNewWindow(WebDriver driver,
+	public void switchToNewWindow(WebDriver driver,
 			String winHandleBefore) throws InterruptedException {
 		Set<String> winHandles =  driver.getWindowHandles();
 		for(String w:winHandles){
@@ -806,4 +834,37 @@ public class OneDriveAction{
 		}
 		
 	}
+	
+	/**
+	 * click username button 
+	 * @param driver
+	 */
+	public void clickUserNameButton(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+			odp.usernamebuttonintopbar(driver).mouseOverClick(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * click signout button 
+	 * @param driver
+	 */
+	public void clickSignOutButtonInUserNameButtonDropdown(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			OneDrivePage odp =  AdvancedPageFactory.getPageObject(driver,OneDrivePage.class);
+			odp.usernamesignoutbuttonintopbar(driver).mouseOverClick(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
 }

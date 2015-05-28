@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import wdframework.common.CommonTest;
 import wdframework.listeners.Priority;
+import wdframework.constants.dropbox.DropBoxConstants;
 import wdframework.constants.googledrive.GoogleDriveConstants;
 
 /**
@@ -11,6 +12,7 @@ import wdframework.constants.googledrive.GoogleDriveConstants;
  * @author Eldo Rajan
  *
  */
+@SuppressWarnings("unused")
 public class GoogleDriveTests extends CommonTest{
 	String wordFileName="";String excelFileName="";String powerpointFileName="";
 	String onenoteFileName="";String excelsurveyFileName="";String plaintextFileName="";
@@ -31,7 +33,7 @@ public class GoogleDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createFolder() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
-		googledrive.createFolder(getWebDriver(), GoogleDriveConstants.Folder, "Sample");
+		googledrive.createFolder(getWebDriver(), GoogleDriveConstants.Folder, GoogleDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -41,7 +43,7 @@ public class GoogleDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFolder() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
-		googledrive.deleteFolder(getWebDriver(), "Sample");
+		googledrive.deleteFolder(getWebDriver(), GoogleDriveConstants.SampleFolderName);
 	}
 	
 	/**
@@ -51,7 +53,7 @@ public class GoogleDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void uploadFile() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
-		googledrive.uploadFile(getWebDriver(),GoogleDriveConstants.UploadFiles, "Test.docx");		
+		googledrive.uploadFile(getWebDriver(),GoogleDriveConstants.UploadFiles, GoogleDriveConstants.SampleFileName);		
 	}
 	
 	/**
@@ -61,7 +63,7 @@ public class GoogleDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void downloadFile() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
-		googledrive.downloadFile(getWebDriver(), "Test.docx");			
+		googledrive.downloadFile(getWebDriver(), GoogleDriveConstants.SampleFileName);			
 	}
 	
 	/**
@@ -71,7 +73,17 @@ public class GoogleDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFile() {
 		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
-		googledrive.deleteFile(getWebDriver(), "Test.docx");			
+		googledrive.deleteFile(getWebDriver(), GoogleDriveConstants.SampleFileName);			
 	}
 	
+	
+	/**
+	 * Logout Test
+	 */
+	@Priority(7)
+	@Test(groups = { "sanity" })
+	public void logout() {
+		googledrive.login(getWebDriver(), GoogleDriveConstants.username, GoogleDriveConstants.password);
+		googledrive.logout(getWebDriver(), GoogleDriveConstants.username);
+	}
 }

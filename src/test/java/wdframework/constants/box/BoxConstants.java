@@ -8,8 +8,12 @@ package wdframework.constants.box;
  */
 public class BoxConstants  {
 
-	public static String username="XXXX";
-	public static String password="XXXX";
+	public static String username="theautomationtester87@gmail.com";
+	public static String password="MaveRick@1987";
+
+	public static String LoggedInHeader="All files and folders - Box";
+	public static String LoggedOutHeader="Customer Log In | Box";
+	public static String Logout="Log Out";
 
 	public static String Folder="New Folder";
 	public static String BoxNote="New Box Note";
@@ -31,9 +35,18 @@ public class BoxConstants  {
 	public static String MODeleteTrash="delete_from_trash";
 	public static String MOSynchronize="synchronize";
 	public static String MONoActions="no_actions";
-	
+
 	public static String UploadFiles="Upload Files";
 	public static String UploadFolders="Upload Folders";
 
+	public static String SampleFolderName="Sample";
+	public static String SampleFileName="Test.docx";
+	public static String SampleFile="Test";
+	public static String SampleFileExtension=".docx";
+	public static String SampleFolderExtension="*.zip";
+
+	public static String Share="Share";
+	public static String Email="Email";
+	public static String Embed="Embed";
 
 }

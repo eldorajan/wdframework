@@ -18,6 +18,7 @@ import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
 import wdframework.action.Action;
 import wdframework.action.fileupload.FileUploadAction;
+import wdframework.constants.CommonConstants;
 import wdframework.constants.box.BoxConstants;
 import wdframework.constants.dropbox.DropBoxConstants;
 import wdframework.constants.onedrive.OneDriveConstants;
@@ -122,13 +123,41 @@ public class BoxAction extends Action{
 			bp.password(driver).clear();bp.password(driver).type(password);
 			bp.loginbutton(driver).click();
 
-			Thread.sleep(10000);
+			bp.logo(driver).waitForLoading(driver);
 
 			bp.logo(driver).waitForElementPresent(driver);
 			bp.logo(driver).waitForElementToBeVisible(driver);
 
 			Assert.assertTrue(bp.logo(driver).isElementVisible());
-			Assert.assertTrue(driver.getTitle().contains("All files and folders - Box"));
+			Assert.assertTrue(driver.getTitle().contains(BoxConstants.LoggedInHeader));
+
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	/**
+	 * logout of box
+	 * @param driver
+	 */
+	public void logout(WebDriver driver){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+
+			Assert.assertTrue(bp.usernamebuttonintopbar(driver).isElementVisible());
+			clickUserNameButton(driver);
+			clickButtonInUserNameButtonDropdown(driver,BoxConstants.Logout);
+			
+			bp.username(driver).waitForLoading(driver);
+			bp.password(driver).waitForLoading(driver);
+			bp.loginbutton(driver).waitForLoading(driver);
+			Logger.info(driver.getTitle());
+			Assert.assertTrue(bp.username(driver).isElementVisible());
+			Assert.assertTrue(bp.password(driver).isElementVisible());
+			Assert.assertTrue(bp.loginbutton(driver).isElementVisible());
+			Assert.assertTrue(driver.getTitle().contains(BoxConstants.LoggedOutHeader));
 
 		} catch (Exception e) {
 			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
@@ -174,16 +203,16 @@ public class BoxAction extends Action{
 		try {
 			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
 
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter(folderName+"*.zip");
+			File dir = new File(CommonConstants.downloadDir);
+			FileFilter fileFilter = new WildcardFileFilter(folderName+BoxConstants.SampleFolderExtension);
 			int fileCountBefore = dir.listFiles(fileFilter).length;
 
 			clickMoreActionsForFolderName(driver,folderName);
 			selectOptionFromMoreActions(driver,BoxConstants.Download);
 			clickOkayButton(driver);		
 
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter(folderName+"*.zip");
+			dir = new File(CommonConstants.downloadDir);
+			fileFilter = new WildcardFileFilter(folderName+BoxConstants.SampleFolderExtension);
 			int fileCountAfter = dir.listFiles(fileFilter).length;			
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"Folder downloaded failed as folder "+folderName+" is not downloaded");
 		} catch (Exception e) {
@@ -259,19 +288,20 @@ public class BoxAction extends Action{
 	 */
 	public void downloadFile(WebDriver driver, String fileName) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		String[] files = fileName.split(".");
 		try {
 			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
 
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
+			File dir = new File(CommonConstants.downloadDir);
+			FileFilter fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountBefore = dir.listFiles(fileFilter).length;
 
 			clickMoreActionsForFolderName(driver,fileName);
 			selectOptionFromMoreActions(driver,BoxConstants.Download);
 			clickOkayButton(driver);			
 
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter("Test*.docx");
+			dir = new File(CommonConstants.downloadDir);
+			fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountAfter = dir.listFiles(fileFilter).length;	
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
 		} catch (Exception e) {
@@ -346,7 +376,7 @@ public class BoxAction extends Action{
 		try {
 			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
 			bp.boxfolderfiledownloadokayelement(driver).click();
-			Thread.sleep(10000);
+			Thread.sleep(10000);			
 		} catch (Exception e) {
 			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
 		}
@@ -548,7 +578,7 @@ public class BoxAction extends Action{
 	 */
 	public void clickUploadButton(WebDriver driver) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
-		
+
 		try {
 			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
 			bp.boxuploadbutton(driver).click();
@@ -566,7 +596,7 @@ public class BoxAction extends Action{
 	 */
 	public void selectOptionFromUploadButton(WebDriver driver, String optionType) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
-		
+
 		BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
 		try {
 			List<Element> boxuploaddropdownlist  = bp.boxuploaddropdownlist(driver).getChildElements();		
@@ -590,7 +620,7 @@ public class BoxAction extends Action{
 	 */
 	public void clickUploadNewFileOkayButton(WebDriver driver) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
-		
+
 		try {
 			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
 
@@ -602,8 +632,513 @@ public class BoxAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
+	public void getFolderProperties(WebDriver driver, String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+
+			clickShareForFolderName(driver, folderName);
+			clickCloseXForSharePopup(driver);
+			clickShareForFolderName(driver, folderName);
+			clickCloseButtonForSharePopup(driver);
+
+			clickFavoriteForFolderName(driver, folderName);
+			clickUnFavoriteForFolderName(driver, folderName);
+
+			clickShareForFolderName(driver, folderName);
+			clickButtonsOnSharePopup(driver, BoxConstants.Share);
+			clickButtonsOnSharePopup(driver, BoxConstants.Email);
+			clickButtonsOnSharePopup(driver, BoxConstants.Embed);
+			clickCloseButtonForSharePopup(driver);
+
+			Logger.info(getFolderTitle(driver, folderName));
+			Logger.info(getFolderIndex(driver, folderName));
+			Logger.info(getFolderCreationInfo(driver, folderName));
+			Logger.info(getFolderCreatorInfo(driver, folderName));
+			Logger.info(getFileCountInFolder(driver, folderName));
+			Logger.info(getFolderSharedOrNot(driver, folderName));
+			
+			clickSharedLinkButtonForFolderName(driver, folderName);
+			clickCloseXForSharePopup(driver);
 
 
 
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	public void getFileProperties(WebDriver driver, String fileName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+
+			clickShareForFolderName(driver, fileName);
+			clickCloseXForSharePopup(driver);
+			clickShareForFolderName(driver, fileName);
+			clickCloseButtonForSharePopup(driver);
+
+			clickFavoriteForFolderName(driver, fileName);
+			clickUnFavoriteForFolderName(driver, fileName);
+
+			clickShareForFolderName(driver, fileName);
+			clickButtonsOnSharePopup(driver, BoxConstants.Share);
+			clickButtonsOnSharePopup(driver, BoxConstants.Email);
+			clickButtonsOnSharePopup(driver, BoxConstants.Embed);
+			clickCloseButtonForSharePopup(driver);
+
+			Logger.info(getFolderTitle(driver, fileName));
+			Logger.info(getFolderIndex(driver, fileName));
+			Logger.info(getFolderCreationInfo(driver, fileName));
+			Logger.info(getFolderCreatorInfo(driver, fileName));
+			Logger.info(getFileSize(driver, fileName));
+			Logger.info(getFolderSharedOrNot(driver, fileName));
+			
+			clickSharedLinkButtonForFolderName(driver, fileName);
+			clickCloseXForSharePopup(driver);
+			
+			clickAddCommentButtonForFileName(driver, fileName);
+			Logger.info(bp.boxpreview(driver).getText());
+			clickCloseButtonForPreview(driver);
+
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+
+	/**
+	 * click share for folder name
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickShareForFolderName(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementactionshare  = bp.boxfolderfileelementactionshare(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					boxfolderfileelementactionshare.get(i).click();
+					bp.boxfoldersharepopup(driver).waitForLoading(driver);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * Click buttons for share popup
+	 * @param driver
+	 * @param buttonName
+	 */
+	public void clickButtonsOnSharePopup(WebDriver driver,
+			String buttonName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfoldersharepopupbuttons  = bp.boxfoldersharepopupbuttons(driver).getChildElements();
+			for(int i=0;i<boxfoldersharepopupbuttons.size();i++){
+				if(boxfoldersharepopupbuttons.get(i).getText().trim().contains(buttonName)){
+					boxfoldersharepopupbuttons.get(i).click();
+					if(buttonName.contains(BoxConstants.Share)){
+						bp.boxfoldersharepopupsharelink(driver).waitForLoading(driver);
+					}else if(buttonName.contains(BoxConstants.Email)){
+						bp.boxfolderemaillinkmessage(driver).waitForLoading(driver);
+					}else if(buttonName.contains(BoxConstants.Embed)){
+						bp.boxfolderembedcode(driver).waitForLoading(driver);
+					}
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * click close x button for share popup
+	 * @param driver
+	 */
+	public void clickCloseXForSharePopup(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			bp.boxfoldersharepopupclose(driver).mouseOverClick(driver);
+			bp.boxfoldersharepopup(driver).waitForElementToDisappear(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+
+	/**
+	 * click close button for share popup
+	 * @param driver
+	 */
+	public void clickCloseButtonForSharePopup(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			bp.boxfoldersharepopupclosebutton(driver).mouseOverClick(driver);
+			bp.boxfoldersharepopup(driver).waitForElementToDisappear(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * click favorite on folder name
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickFavoriteForFolderName(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementactionfavorite  = bp.boxfolderfileelementactionfavorite(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					boxfolderfileelementactionfavorite.get(i).click();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+	/**
+	 * click unfavorite on folder name
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickUnFavoriteForFolderName(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementactionunfavorite  = bp.boxfolderfileelementactionunfavorite(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					boxfolderfileelementactionunfavorite.get(i).click();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+
+
+	/**
+	 * get folder title 
+	 * @param driver
+	 * @param folderName
+	 */
+	public String getFolderTitle(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		String title="";
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					title = boxfolderfileelementtitle.get(i).getText().trim();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return title;
+	}
+
+	/**
+	 * get folder index 
+	 * @param driver
+	 * @param folderName
+	 */
+	public int getFolderIndex(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		int index=0;
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					index = i;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return index;
+	}
+
+
+	/**
+	 * get folder creation info 
+	 * @param driver
+	 * @param folderName
+	 */
+	public String getFolderCreationInfo(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		String title="";
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementcreationinfo  = bp.boxfolderfileelementcreationinfo(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					title = boxfolderfileelementcreationinfo.get(i).getText().trim();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return title;
+	}
+
+	/**
+	 * get folder creator info 
+	 * @param driver
+	 * @param folderName
+	 */
+	public String getFolderCreatorInfo(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		String title="";
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementcreatorinfo  = bp.boxfolderfileelementcreatorinfo(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					title = boxfolderfileelementcreatorinfo.get(i).getText().trim();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return title;
+	}
+
+	/**
+	 * get file count in folders
+	 * @param driver
+	 * @param folderName
+	 */
+	public int getFileCountInFolder(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		int count=0;
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementfilecount  = bp.boxfolderfileelementfilecount(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					count = Integer.parseInt(boxfolderfileelementfilecount.get(i).getText().trim());
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return count;
+	}
+	
+	/**
+	 * get if folder is shared or not
+	 * @param driver
+	 * @param folderName
+	 */
+	public boolean getFolderSharedOrNot(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		boolean flag=false;
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					List<Element> boxfolderfileelementsharedmenulink  = bp.boxfolderfileelementsharedmenulink(driver).getChildElements();
+					flag = boxfolderfileelementsharedmenulink.get(i).isElementPresent(driver);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return flag;
+	}
+
+	/**
+	 * click shared link for folder name
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickSharedLinkButtonForFolderName(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementsharedmenulink  = bp.boxfolderfileelementsharedmenulink(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					boxfolderfileelementsharedmenulink.get(i).click();
+					bp.boxfoldersharepopup(driver).waitForLoading(driver);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	/**
+	 * click shared link for folder name
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickAddCommentButtonForFileName(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementaddcomment  = bp.boxfolderfileelementaddcomment(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					boxfolderfileelementaddcomment.get(i).mouseOverClick(driver);
+					bp.boxpreview(driver).waitForLoading(driver);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	
+	/**
+	 * get folder creation info 
+	 * @param driver
+	 * @param folderName
+	 */
+	public String getFileSize(WebDriver driver,
+			String folderName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		String title="";
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> boxfolderfileelementtitle  = bp.boxfolderfileelementtitle(driver).getChildElements();
+			List<Element> boxfolderfileelementfilesize  = bp.boxfolderfileelementfilesize(driver).getChildElements();
+			for(int i=0;i<boxfolderfileelementtitle.size();i++){
+				if(boxfolderfileelementtitle.get(i).getText().trim().contains(folderName)){
+					title = boxfolderfileelementfilesize.get(i).getText().trim();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		return title;
+	}
+	
+	/**
+	 * click close button for preview
+	 * @param driver
+	 */
+	public void clickCloseButtonForPreview(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			bp.boxpreviewclose(driver).mouseOverClick(driver);
+			//bp.boxpreview(driver).waitForElementNotToBePresent(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	/**
+	 * click buttons in username button dropdown
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickButtonInUserNameButtonDropdown(WebDriver driver,
+			String optionName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			List<Element> usernamebuttonintopbardropdown  = bp.usernamebuttonintopbardropdown(driver).getChildElements();
+			for(int i=0;i<usernamebuttonintopbardropdown.size();i++){
+				if(usernamebuttonintopbardropdown.get(i).getText().trim().contains(optionName)){
+					usernamebuttonintopbardropdown.get(i).click();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	
+	/**
+	 * click user name button
+	 * @param driver
+	 */
+	public void clickUserNameButton(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+
+		try {
+			BoxPage bp =  AdvancedPageFactory.getPageObject(driver,BoxPage.class);
+			bp.usernamebuttonintopbar(driver).mouseOverClick(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	
+	
 }

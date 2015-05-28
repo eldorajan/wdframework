@@ -3,6 +3,8 @@ package wdframework.listeners;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
+import wdframework.logger.Logger;
+
 /**
  * Retry analyzer
  * @author Eldo Rajan
@@ -22,7 +24,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
 		if (!result.isSuccess()) {
 			if (count < maxCount) {
 				count++;
-				System.out.println("Error seen in "+ result.getName() +" Retrying " + count + " times in progress");
+				Logger.info("Error seen in "+ result.getName() +" Retrying " + count + " times in progress");
 				result.getTestContext().getFailedTests().removeResult(result.getMethod());
 				/*ISuiteResult suiteResult = null;
 				suiteResult.getTestContext().getFailedTests().removeResult(result.getMethod());*/

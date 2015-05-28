@@ -18,9 +18,12 @@ import wdframework.driver.BrowserType;
 import wdframework.logger.Logger;
 import wdframework.action.Action;
 import wdframework.action.fileupload.FileUploadAction;
+import wdframework.constants.CommonConstants;
+import wdframework.constants.box.BoxConstants;
 import wdframework.constants.dropbox.DropBoxConstants;
 import wdframework.constants.onedrive.OneDriveConstants;
 import wdframework.pagefactory.AdvancedPageFactory;
+import wdframework.pageobjects.BoxPage;
 import wdframework.pageobjects.DropBoxPage;
 import wdframework.pageobjects.OneDrivePage;
 import wdframework.webelements.CheckBox;
@@ -45,7 +48,7 @@ public class DropBoxAction extends Action{
 		Folder("folder"),
 		Document("document");
 
-		private String fileType;
+		public String fileType;
 
 		FileType(String fileType) {
 			this.fileType = fileType;
@@ -102,7 +105,35 @@ public class DropBoxAction extends Action{
 			dbp.logo(driver).waitForElementToBeVisible(driver);
 
 			Assert.assertTrue(dbp.logo(driver).isElementVisible());
-			Assert.assertTrue(driver.getTitle().contains("Home - Dropbox"));
+			Assert.assertTrue(driver.getTitle().contains(DropBoxConstants.LoggedInHeader));
+
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	/**
+	 * logout of dropbox
+	 * @param driver
+	 */
+	public void logout(WebDriver driver){
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+
+			Assert.assertTrue(dbp.usernamebuttonintopbar(driver).isElementVisible());
+			clickUserNameButton(driver);
+			clickButtonInUserNameButtonDropdown(driver,DropBoxConstants.Signout);
+			
+			dbp.username(driver).waitForLoading(driver);
+			dbp.password(driver).waitForLoading(driver);
+			dbp.loginbutton(driver).waitForLoading(driver);
+			Logger.info(driver.getTitle());
+			Assert.assertTrue(dbp.username(driver).isElementVisible());
+			Assert.assertTrue(dbp.password(driver).isElementVisible());
+			Assert.assertTrue(dbp.loginbutton(driver).isElementVisible());
+			Assert.assertTrue(driver.getTitle().contains(DropBoxConstants.LoggedOutHeader));
 
 		} catch (Exception e) {
 			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
@@ -121,13 +152,13 @@ public class DropBoxAction extends Action{
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
-			int countBefore = getFolderFileCount(driver,"folder");
+			int countBefore = getFolderFileCount(driver,DropBoxConstants.Folder);
 
 			clickDropboxMenuActionsLink(driver, DropBoxConstants.NewFolder);
 			typeDropBoxFolderTextbox(driver,folderName);	
 			clickCreateDropBoxFolderButton(driver);
 
-			int countAfter = getFolderFileCount(driver,"folder");	
+			int countAfter = getFolderFileCount(driver,DropBoxConstants.Folder);	
 
 			Assert.assertTrue(countAfter==countBefore+1,"Folder creation failed as new folder is not created");
 			String[] folderNames = getFolderFileNames(driver);	
@@ -150,16 +181,16 @@ public class DropBoxAction extends Action{
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter(folderName+"*.zip");
+			File dir = new File(CommonConstants.downloadDir);
+			FileFilter fileFilter = new WildcardFileFilter(folderName+BoxConstants.SampleFolderExtension);
 			int fileCountBefore = dir.listFiles(fileFilter).length;
 
 			rightClickOnFolderName(driver,folderName);
-			clickFolderRightClickOptions(driver,"Download");
+			clickFolderRightClickOptions(driver,DropBoxConstants.Download);
 			clickDeleteButton(driver);		
 
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter(folderName+"*.zip");
+			dir = new File(CommonConstants.downloadDir);
+			fileFilter = new WildcardFileFilter(folderName+BoxConstants.SampleFolderExtension);
 			int fileCountAfter = dir.listFiles(fileFilter).length;			
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"Folder downloaded failed as folder "+folderName+" is not downloaded");
 		} catch (Exception e) {
@@ -179,12 +210,12 @@ public class DropBoxAction extends Action{
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
-			int countBefore = getFolderFileCount(driver,"folder");
+			int countBefore = getFolderFileCount(driver,DropBoxConstants.Folder);
 
 			rightClickOnFolderName(driver,folderName);
-			clickFolderRightClickOptions(driver,"Delete");
+			clickFolderRightClickOptions(driver,DropBoxConstants.Delete);
 			clickDeleteButton(driver);
-			int countAfter = getFolderFileCount(driver,"folder");	
+			int countAfter = getFolderFileCount(driver,DropBoxConstants.Folder);	
 
 			Assert.assertTrue(countAfter==countBefore-1,"Folder deletion failed as new folder is not deleted");
 		} catch (Exception e) {
@@ -230,19 +261,20 @@ public class DropBoxAction extends Action{
 	 */
 	public void downloadFile(WebDriver driver, String fileName) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		String[] files = fileName.split(".");
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
-			File dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			FileFilter fileFilter = new WildcardFileFilter("Test*.docx");
+			File dir = new File(CommonConstants.downloadDir);
+			FileFilter fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountBefore = dir.listFiles(fileFilter).length;
 
 			rightClickOnFolderName(driver,fileName);
-			clickFolderRightClickOptions(driver,"Download");
+			clickFolderRightClickOptions(driver,DropBoxConstants.Download);
 			clickDeleteButton(driver);		
 
-			dir = new File(System.getProperty("user.home")+File.separator+"Downloads");
-			fileFilter = new WildcardFileFilter("Test*.docx");
+			dir = new File(CommonConstants.downloadDir);
+			fileFilter = new WildcardFileFilter(files[0]+"*"+files[1]);
 			int fileCountAfter = dir.listFiles(fileFilter).length;	
 			Assert.assertTrue(fileCountAfter==fileCountBefore+1,"File downloaded failed as file "+fileName+" is not downloaded");
 		}catch (Exception e) {
@@ -261,12 +293,12 @@ public class DropBoxAction extends Action{
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 
-			int countBefore = getFolderFileCount(driver,"document");
+			int countBefore = getFolderFileCount(driver,DropBoxConstants.Document);
 
 			rightClickOnFolderName(driver,fileName);
-			clickFolderRightClickOptions(driver,"Delete");
+			clickFolderRightClickOptions(driver,DropBoxConstants.Delete);
 			clickDeleteButton(driver);
-			int countAfter = getFolderFileCount(driver,"document");	
+			int countAfter = getFolderFileCount(driver,DropBoxConstants.Document);	
 
 			Assert.assertTrue(countAfter==countBefore-1,"File deletion failed as new file is not deleted");
 		} catch (Exception e) {
@@ -350,7 +382,7 @@ public class DropBoxAction extends Action{
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
 			List<Element> dropboxdeletefolderbutton  = dbp.dropboxdeletefolderbutton(driver).getChildElements();
 			for(int i=0;i<dropboxdeletefolderbutton.size();i++){
-				if(dropboxdeletefolderbutton.get(i).getText().trim().equalsIgnoreCase("Delete")){
+				if(dropboxdeletefolderbutton.get(i).getText().trim().equalsIgnoreCase(DropBoxConstants.Delete)){
 					dropboxdeletefolderbutton.get(i).click();
 					Thread.sleep(10000);
 					break;
@@ -362,7 +394,7 @@ public class DropBoxAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	private void clickFolderRightClickOptions(WebDriver driver, String optionType) {
+	public void clickFolderRightClickOptions(WebDriver driver, String optionType) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try{
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
@@ -381,7 +413,7 @@ public class DropBoxAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	private void clickCreateDropBoxFolderButton(WebDriver driver) {
+	public void clickCreateDropBoxFolderButton(WebDriver driver) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
@@ -395,7 +427,7 @@ public class DropBoxAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	private void typeDropBoxFolderTextbox(WebDriver driver, String folderName) {
+	public void typeDropBoxFolderTextbox(WebDriver driver, String folderName) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 
 		try {
@@ -411,7 +443,7 @@ public class DropBoxAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
-	private void clickDropboxMenuActionsLink(WebDriver driver, String actionName) {
+	public void clickDropboxMenuActionsLink(WebDriver driver, String actionName) {
 		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		try {
 			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
@@ -425,7 +457,45 @@ public class DropBoxAction extends Action{
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
+	/**
+	 * click buttons in username button dropdown
+	 * @param driver
+	 * @param folderName
+	 */
+	public void clickButtonInUserNameButtonDropdown(WebDriver driver,
+			String optionName) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		try {
+			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+			List<Element> usernamebuttonintopbardropdown  = dbp.usernamebuttonintopbardropdown(driver).getChildElements();
+			for(int i=0;i<usernamebuttonintopbardropdown.size();i++){
+				if(usernamebuttonintopbardropdown.get(i).getText().trim().contains(optionName)){
+					usernamebuttonintopbardropdown.get(i).click();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
+	
+	
+	/**
+	 * click username button 
+	 * @param driver
+	 */
+	public void clickUserNameButton(WebDriver driver) {
+		Logger.info("Started the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 
+		try {
+			DropBoxPage dbp =  AdvancedPageFactory.getPageObject(driver,DropBoxPage.class);
+			dbp.usernamebuttonintopbar(driver).mouseOverClick(driver);
+		} catch (Exception e) {
+			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+		}
+		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
+	}
 
 
 

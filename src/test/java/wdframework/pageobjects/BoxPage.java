@@ -7,6 +7,7 @@ import wdframework.webelements.Button;
 import wdframework.webelements.Element;
 import wdframework.webelements.ElementList;
 import wdframework.webelements.HyperLink;
+import wdframework.webelements.TextArea;
 import wdframework.webelements.TextBox;
 
 /**
@@ -28,6 +29,14 @@ public class BoxPage extends BasePage{
 	
 	public Button loginbutton(WebDriver driver){
 		return new Button(driver,getLocator());
+	}
+	
+	public Button usernamebuttonintopbar(WebDriver driver){
+		return new Button(driver,getLocator());
+	}
+	
+	public ElementList<Element> usernamebuttonintopbardropdown(WebDriver driver){
+		return new ElementList<Element>(driver,getLocator());
 	}
 	
 	public HyperLink logo(WebDriver driver){
@@ -94,6 +103,84 @@ public class BoxPage extends BasePage{
 		return new Button(driver,getLocator());
 	}
 		
+	public ElementList<Element> boxfolderfileelementactionshare(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
 	
+	public ElementList<Element> boxfolderfileelementactionunfavorite(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
 	
+	public ElementList<Element> boxfolderfileelementactionfavorite(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementcreationinfolist(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementcreationinfo(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementcreatorinfo(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementfilecount(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementsharedmenulink(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public HyperLink boxfoldersharepopup(WebDriver driver) {
+		return new HyperLink(driver,getLocator());
+	}
+	
+	public HyperLink boxfoldersharepopupclose(WebDriver driver) {
+		return new HyperLink(driver,getLocator());
+	}
+	
+	public Button boxfoldersharepopupclosebutton(WebDriver driver) {
+		return new Button(driver,getLocator());
+	}
+	
+	public TextBox boxfoldersharepopupsharelink(WebDriver driver) {
+		return new TextBox(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfoldersharepopupbuttons(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public TextArea boxfolderemaillinkmessage(WebDriver driver) {
+		return new TextArea(driver,getLocator());
+	}
+	
+	public TextBox boxfolderemailtypeaddress(WebDriver driver) {
+		return new TextBox(driver,getLocator());
+	}
+	
+	public TextArea boxfolderembedcode(WebDriver driver) {
+		return new TextArea(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementfilesize(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public ElementList<Element> boxfolderfileelementaddcomment(WebDriver driver) {
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
+	public HyperLink boxpreview(WebDriver driver) {
+		return new HyperLink(driver,getLocator());
+	}
+	
+	public Button boxpreviewclose(WebDriver driver) {
+		return new Button(driver,getLocator());
+	}
+		
 }

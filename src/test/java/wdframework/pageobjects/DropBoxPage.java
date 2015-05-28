@@ -34,6 +34,14 @@ public class DropBoxPage extends BasePage{
 		return new HyperLink(driver,getLocator());
 	}
 	
+	public Button usernamebuttonintopbar(WebDriver driver){
+		return new Button(driver,getLocator());
+	}
+	
+	public ElementList<Element> usernamebuttonintopbardropdown(WebDriver driver){
+		return new ElementList<Element>(driver,getLocator());
+	}
+	
 	public HyperLink closeoverlayicon(WebDriver driver){
 		return new HyperLink(driver,getLocator());
 	}

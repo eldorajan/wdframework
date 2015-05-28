@@ -78,7 +78,7 @@ public class EmailableReporter2 implements IReporter {
 			Map<String, ISuiteResult> tests = suite.getResults();
 
 			for ( ISuiteResult r : tests.values()) {
-				//System.out.println(r);
+				//Logger.info(r);
 			}
 		}
 

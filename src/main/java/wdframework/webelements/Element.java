@@ -13,6 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import wdframework.logger.Logger;
 import wdframework.webelements.BasePage.LocatorType;
 
 /**
@@ -155,6 +157,13 @@ public class Element implements WebElement {
 	}
 
 	/**
+	 * get text from textbox
+	 */
+	public String getTextFromTextBox() {
+		return element.getAttribute("value");
+	}
+
+	/**
 	 * is displayed
 	 */
 	public boolean isDisplayed() {
@@ -245,7 +254,7 @@ public class Element implements WebElement {
 		// For each option in the list, verify if it's the one you want and then click it 
 		for (WebElement we : options) {     
 			if (we.getText().equalsIgnoreCase(valToSelect)) {         
-				System.out.println(String.format("Value is: %s", we.getText()));
+				Logger.info(String.format("Value is: %s", we.getText()));
 				we.click();
 				break;     
 			} 
@@ -264,7 +273,7 @@ public class Element implements WebElement {
 		// For each option in the list, verify if it's the one you want and then click it 
 		for (WebElement we : options) {     
 			if (we.getText().equalsIgnoreCase(valToSelect)) {         
-				System.out.println(String.format("Value is: %s", we.getText()));
+				Logger.info(String.format("Value is: %s", we.getText()));
 				select.selectByValue(valToSelect);
 				break;     
 			} 
@@ -494,7 +503,7 @@ public class Element implements WebElement {
 			}
 		}
 	}
-	
+
 	/**
 	 * wait for loading
 	 * @param driver
@@ -512,7 +521,49 @@ public class Element implements WebElement {
 			}
 		}
 	}
-	
+
+
+	/**
+	 * wait for loading
+	 * @param driver
+	 * @param timeoutMillis
+	 */
+	public void waitForElementNotToBePresent(WebDriver driver, int timeoutMillis) {
+		long end = System.currentTimeMillis() + timeoutMillis;
+		while (System.currentTimeMillis() < end) {
+			try {
+				List<WebElement> result = driver.findElements(getBy(locator));
+				if (!result.isEmpty()) {
+					// nothing to do
+				}
+			} catch (Exception e) {
+				break;
+			}
+		}
+	}
+
+	/**
+	 * wait for loading
+	 * @param driver
+	 */
+	public void waitForElementNotToBePresent(WebDriver driver) {
+		long end = System.currentTimeMillis() + (1*1000);
+		try{
+			while (System.currentTimeMillis() < end) {
+				try {
+					List<WebElement> result = driver.findElements(getBy(locator));
+					if (!result.isEmpty()) {
+						// nothing to do
+					}
+				} catch (Exception e) {
+					break;
+				}
+			}
+		} catch (Exception e) {
+			// nothing to do
+		}
+	}
+
 	/**
 	 * get by
 	 * @param locator
@@ -552,7 +603,7 @@ public class Element implements WebElement {
 		return locatorIdentifiedBy;
 	}
 
-	
+
 	@Override
 	public WebElement findElement(By arg0) {
 		// TODO Auto-generated method stub

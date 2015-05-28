@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import wdframework.common.CommonTest;
 import wdframework.listeners.Priority;
+import wdframework.constants.googledrive.GoogleDriveConstants;
 import wdframework.constants.onedrive.OneDriveConstants;
 
 /**
@@ -32,7 +33,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createFolder() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		onedrive.createFolder(getWebDriver(), OneDriveConstants.Folder, "Sample");
+		onedrive.createFolder(getWebDriver(), OneDriveConstants.Folder, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -43,9 +44,9 @@ public class OneDriveTests extends CommonTest{
 	public void deleteFolder() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
 		if(getWebDriver() instanceof FirefoxDriver){
-			onedrive.deleteFolder(getWebDriver(), OneDriveConstants.DeleteFolder, "Sample");
+			onedrive.deleteFolder(getWebDriver(), OneDriveConstants.DeleteFolder, OneDriveConstants.SampleFolderName);
 		}else{
-			onedrive.deleteFolder(getWebDriver(), OneDriveConstants.Delete, "Sample");
+			onedrive.deleteFolder(getWebDriver(), OneDriveConstants.Delete, OneDriveConstants.SampleFolderName);
 		}		
 	}
 
@@ -56,7 +57,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createWordFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		wordFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.Word, OneDriveConstants.WordFileType, "Sample");
+		wordFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.Word, OneDriveConstants.WordFileType, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -66,7 +67,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createExcelFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		excelFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.Excel, OneDriveConstants.ExcelFileType, "Sample");
+		excelFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.Excel, OneDriveConstants.ExcelFileType, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -76,7 +77,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createPowerPointFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		powerpointFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.PowerPoint, OneDriveConstants.PowerPointFileType, "Sample");
+		powerpointFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.PowerPoint, OneDriveConstants.PowerPointFileType, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -86,7 +87,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createOneNoteFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		onenoteFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.OneNote, OneDriveConstants.OneNoteFileType, "Sample");
+		onenoteFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.OneNote, OneDriveConstants.OneNoteFileType, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -96,7 +97,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createExcelSurveyFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		excelsurveyFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.ExcelSurvey, OneDriveConstants.ExcelSurveyFileType, "Sample");
+		excelsurveyFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.ExcelSurvey, OneDriveConstants.ExcelSurveyFileType, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -106,7 +107,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void createPlainTextFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		plaintextFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.PlainText, OneDriveConstants.PlainTextFileType, "Sample");
+		plaintextFileName = onedrive.createFile(getWebDriver(), OneDriveConstants.PlainText, OneDriveConstants.PlainTextFileType, OneDriveConstants.SampleFolderName);
 	}
 
 	/**
@@ -176,7 +177,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void uploadFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		onedrive.uploadFile(getWebDriver(), "Test.docx");		
+		onedrive.uploadFile(getWebDriver(), OneDriveConstants.SampleFileName);		
 	}
 	
 	/**
@@ -186,7 +187,7 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void downloadFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		onedrive.downloadFile(getWebDriver(), "Test");			
+		onedrive.downloadFile(getWebDriver(), OneDriveConstants.SampleFile);			
 	}
 	
 	/**
@@ -196,6 +197,16 @@ public class OneDriveTests extends CommonTest{
 	@Test(groups = { "sanity" })
 	public void deleteFile() {
 		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
-		onedrive.deleteFile(getWebDriver(), OneDriveConstants.Word, OneDriveConstants.WordFileType, "Test");		
+		onedrive.deleteFile(getWebDriver(), OneDriveConstants.Word, OneDriveConstants.WordFileType, OneDriveConstants.SampleFile);		
+	}
+	
+	/**
+	 * Logout Test
+	 */
+	@Priority(7)
+	@Test(groups = { "sanity" })
+	public void logout() {
+		onedrive.login(getWebDriver(), OneDriveConstants.username, OneDriveConstants.password);
+		onedrive.logout(getWebDriver(), GoogleDriveConstants.username);
 	}
 }

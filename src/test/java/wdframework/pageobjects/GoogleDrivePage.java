@@ -34,6 +34,14 @@ public class GoogleDrivePage extends BasePage{
 		return new HyperLink(driver,getLocator());
 	}
 	
+	public HyperLink usernamebuttonintopbar(WebDriver driver,String username){
+		return new HyperLink(driver,getLocator().replace("ACCOUNT_NAME", username));
+	}
+	
+	public HyperLink usernamebuttonintopbardropdown(WebDriver driver){
+		return new HyperLink(driver,getLocator());
+	}
+	
 	public ElementList<Element> mydrivebutton(WebDriver driver){
 		return new ElementList<Element>(driver,getLocator());
 	}
