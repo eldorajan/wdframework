@@ -8,8 +8,9 @@ package wdframework.constants.googledrive;
  */
 public class GoogleDriveConstants  {
 
-	public static String username="theautomationtester87@gmail.com";
-	public static String password="MaveRick@1987";
+	public static String username="XXXX";
+	public static String password="XXXX";
+	
 	public static String Folder="New folder...";
 	public static String UploadFiles="Upload files...";
 	

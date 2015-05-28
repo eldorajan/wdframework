@@ -8,8 +8,8 @@ package wdframework.constants.dropbox;
  */
 public class DropBoxConstants  {
 
-	public static String username="theautomationtester87@gmail.com";
-	public static String password="MaveRick@1987";
+	public static String username="XXXX";
+	public static String password="XXXX";
 	
 	public static String LoggedInHeader="Home - Dropbox";
 	public static String LoggedOutHeader="Dropbox - Log in";

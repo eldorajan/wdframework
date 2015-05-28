@@ -8,8 +8,9 @@ package wdframework.constants.onedrive;
  */
 public class OneDriveConstants  {
 
-	public static String username="theautomationtester87@outlook.com";
-	public static String password="MaveRick@1987";
+	public static String username="XXXX";
+	public static String password="XXXX";
+	
 	public static String Folder="Folder";
 	public static String Word="Word document";
 	public static String Excel="Excel workbook";
