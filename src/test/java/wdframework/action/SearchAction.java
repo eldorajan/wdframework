@@ -24,6 +24,7 @@ public class SearchAction extends Action{
 		try {
 			SearchPage sp =  AdvancedPageFactory.getPageObject(driver,SearchPage.class);
 			
+			sp.searchelement(driver).waitForLoading(driver);
 			Assert.assertTrue(sp.searchelement(driver).isElementVisible());
 			sp.searchelement(driver).type(text);
 			sp.searchelement(driver).submit();
@@ -38,9 +39,12 @@ public class SearchAction extends Action{
 			
 		} catch (Exception e) {
 			Logger.info("Failed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e.toString());
+			Assert.fail(e.toString());
 		}
 		
 		Logger.info("Completed the method:"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
+	
+	
 	
 }

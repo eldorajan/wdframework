@@ -11,7 +11,7 @@
 		<listener class-name="wdframework.listeners.RetryListener" />
 	</listeners>
 
-	<parameter name="browser" value="chrome" />
+	<parameter name="browser" value="safari" />
 	<parameter name="mode" value="grid" />
 	<parameter name="baseurl" value="http://www.google.com/" />
 

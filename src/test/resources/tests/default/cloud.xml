@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Sanity">
+<suite name="Sanity" parallel="methods" thread-count="5" >
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -8,13 +8,14 @@
 		<listener class-name="wdframework.listeners.SuiteListener" />
 		<listener class-name="wdframework.listeners.MethodListener" />
 		<listener class-name="wdframework.listeners.ScreenShotListener" />
+		<listener class-name="wdframework.listeners.RetryListener" />
 	</listeners>
 
-	<parameter name="browser" value="firefox" />
-	<parameter name="mode" value="local" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="mode" value="cloud" />
 	<parameter name="baseurl" value="http://www.google.com/" />
 
-	<test name="Sample Tests on Local">
+	<test name="Sample Tests on Cloud" >
 		<classes>
 			<class name="wdframework.tests.SampleTest" />
 		</classes>

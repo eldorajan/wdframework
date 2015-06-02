@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
 import wdframework.driver.BrowserType;
 import wdframework.driver.Driver;
 import wdframework.driver.DriverType;
@@ -26,16 +27,18 @@ public class DriverRunner extends Driver{
 	// Separate driver instance for each thread
 	protected ThreadLocal<WebDriver> localdriver = new ThreadLocal<WebDriver>();
 	protected ThreadLocal<RemoteWebDriver> remotedriver = new ThreadLocal<RemoteWebDriver>();
+	protected ThreadLocal<String> sessionId = new ThreadLocal<String>();
 	TestConfig testconfig = null;   
 			
 	/**
 	 * Before Method instantiations
 	 * @param theTestContext
+	 * @param theTestResult
 	 */
 	@BeforeMethod(alwaysRun = true)
 	public void startBrowser(ITestContext theTestContext) {
 		testconfig = new TestConfig();
-
+		String suiteName = theTestContext.getSuite().getXmlSuite().getName();
 		try {
 
 			browser = BrowserType.getBrowserType(System.getProperty("browser"));
@@ -78,7 +81,8 @@ public class DriverRunner extends Driver{
 				break;
 			}
 			case Cloud: {
-				remotedriver.set(browserProfileConfigurationRemote(browser, huburl));
+				remotedriver.set(browserProfileConfigurationCloud(browser, huburl, suiteName));
+				sessionId.set(((RemoteWebDriver) getWebDriver()).getSessionId().toString());
 				break;
 			}
 
@@ -119,7 +123,7 @@ public class DriverRunner extends Driver{
 			getWebDriver().quit();
 			remotedriver.remove();
 		}else{
-			//driver.quit();
+			getWebDriver().quit();
 		}
 
 		Logger.info("Closed the browser session after the method gets executed");
