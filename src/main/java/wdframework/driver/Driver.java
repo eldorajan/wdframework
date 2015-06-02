@@ -334,7 +334,7 @@ public class Driver {
 			desiredCapabilities.setCapability(CapabilityType.BROWSER_NAME, "chrome");
 			break;
 		}
-		desiredCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, "true");
+		desiredCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		desiredCapabilities.setCapability(CapabilityType.ELEMENT_SCROLL_BEHAVIOR, 1);
 		desiredCapabilities.setCapability("screenResolution", "1024x768");
 		desiredCapabilities.setCapability("name", suiteName);
