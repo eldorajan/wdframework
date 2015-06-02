@@ -14,3 +14,5 @@ Webdriver Automation Framework
 	Modes supported:Local,Grid,Cloud(sauce labs support)
 
 	Listeners: Retry Listener,Priority Listener and etc..
+	
+	[![Sauce Test Status](https://saucelabs.com/browser-matrix/eldorajan87.svg)](https://saucelabs.com/u/eldorajan87)
