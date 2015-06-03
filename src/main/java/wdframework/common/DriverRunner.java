@@ -6,8 +6,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import com.saucelabs.saucerest.SauceREST;
 
 import wdframework.driver.BrowserType;
 import wdframework.driver.Driver;
@@ -23,13 +27,13 @@ import wdframework.logger.Logger;
 public class DriverRunner extends Driver{
 
 
-	DriverType mode=null;BrowserType browser=null;String baseUrl=null;
+	DriverType mode=null;BrowserType browser=null;String baseUrl=null;String huburl =null;
 	// Separate driver instance for each thread
 	protected ThreadLocal<WebDriver> localdriver = new ThreadLocal<WebDriver>();
 	protected ThreadLocal<RemoteWebDriver> remotedriver = new ThreadLocal<RemoteWebDriver>();
 	protected ThreadLocal<String> sessionId = new ThreadLocal<String>();
 	TestConfig testconfig = null;   
-			
+
 	/**
 	 * Before Method instantiations
 	 * @param theTestContext
@@ -68,7 +72,7 @@ public class DriverRunner extends Driver{
 			String ieDriver = testconfig.getIEDriver();
 			String chromeDriver = testconfig.getChromeDriver();
 			mode = testconfig.getMode();
-			String huburl = testconfig.getHubUrl();
+			huburl = testconfig.getHubUrl();
 			String baseUrl = testconfig.getBaseUrl();
 
 			switch (mode) {
@@ -122,6 +126,28 @@ public class DriverRunner extends Driver{
 		}else if (remotedriver.get() != null) {
 			getWebDriver().quit();
 			remotedriver.remove();
+			switch (mode) {
+			case Local: {            
+				break;
+			}
+			case Grid: {
+				break;
+			}
+			case Cloud: {
+				ITestResult testStatus = Reporter.getCurrentTestResult();
+				SauceREST client = new SauceREST(huburl.split(":")[0],huburl.split(":")[1]);
+
+				if (testStatus.isSuccess()) {
+					client.jobPassed(getSessionId());
+				} else {
+					client.jobFailed(getSessionId());
+				}
+
+				break;
+			}
+			default:           
+				break;
+			}
 		}else{
 			getWebDriver().quit();
 		}
@@ -164,6 +190,23 @@ public class DriverRunner extends Driver{
 		return driver;
 
 	}
-	
-	
+
+	/**
+	 * gets session id   
+	 * @return
+	 */
+	public String getSessionId(){
+		String jobId=null;
+		try {
+			jobId = sessionId.get();	
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			Logger.error(
+					"Fail to intialize the session, please session parameter.");
+		}
+		return jobId;
+
+	}
+
 }

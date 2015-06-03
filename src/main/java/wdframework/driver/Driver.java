@@ -75,14 +75,7 @@ public class Driver {
 			break;
 		case Android:	
 			try {
-				File appDir = new File("src/test/resources/data");
-				File app = new File(appDir, "appium.apk");
-				DesiredCapabilities capabilities = new DesiredCapabilities();
-				capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
-				capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
-				capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-				capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 120);
-				driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+				driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), getDesiredCapabilities(browser));
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -242,6 +235,15 @@ public class Driver {
 			desiredCapabilities.setCapability("phantomjs.page.settings.loadImages", true);
 			desiredCapabilities.setCapability("phantomjs.page.settings.localToRemoteUrlAccessEnabled", true);
 			desiredCapabilities.setJavascriptEnabled(true);			
+			break;
+		case Android:
+			File appDir = new File("src/test/resources/data");
+			File app = new File(appDir, "appium.apk");
+			desiredCapabilities = DesiredCapabilities.android();
+			desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+			desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
+			desiredCapabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+			desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 120);			
 			break;
 		default:
 			desiredCapabilities = DesiredCapabilities.firefox();
