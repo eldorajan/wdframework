@@ -27,7 +27,7 @@ import wdframework.logger.Logger;
 public class DriverRunner extends Driver{
 
 
-	DriverType mode=null;BrowserType browser=null;String baseUrl=null;String huburl =null;
+	DriverType mode=null;BrowserType browser=null;String baseUrl=null;String hubUrl =null;
 	// Separate driver instance for each thread
 	protected ThreadLocal<WebDriver> localdriver = new ThreadLocal<WebDriver>();
 	protected ThreadLocal<RemoteWebDriver> remotedriver = new ThreadLocal<RemoteWebDriver>();
@@ -48,6 +48,8 @@ public class DriverRunner extends Driver{
 			browser = BrowserType.getBrowserType(System.getProperty("browser"));
 			mode = DriverType.getDriverType(System.getProperty("mode"));
 			baseUrl = System.getProperty("baseurl");
+			hubUrl = System.getProperty("huburl");
+			
 			if(browser==null){
 				browser = BrowserType.getBrowserType(theTestContext.getCurrentXmlTest().getParameter("browser"));            	
 			}
@@ -57,6 +59,10 @@ public class DriverRunner extends Driver{
 			if(baseUrl==null){
 				baseUrl = theTestContext.getCurrentXmlTest().getParameter("baseurl");	
 			}
+			if(hubUrl==null){
+				hubUrl = theTestContext.getCurrentXmlTest().getParameter("huburl");	
+			}
+
 
 			if(browser!=null){
 				testconfig.setBrowser(browser);
@@ -67,12 +73,16 @@ public class DriverRunner extends Driver{
 			if(baseUrl!=null){
 				testconfig.setBaseUrl(baseUrl);
 			}
+			if(hubUrl!=null){
+				testconfig.setHubUrl(hubUrl);
+			}
 
+			
 			BrowserType browser = testconfig.getBrowser();
 			String ieDriver = testconfig.getIEDriver();
 			String chromeDriver = testconfig.getChromeDriver();
-			mode = testconfig.getMode();
-			huburl = testconfig.getHubUrl();
+			DriverType mode = testconfig.getMode();
+			String hubUrl = testconfig.getHubUrl();
 			String baseUrl = testconfig.getBaseUrl();
 
 			switch (mode) {
@@ -81,11 +91,11 @@ public class DriverRunner extends Driver{
 				break;
 			}
 			case Grid: {
-				remotedriver.set(browserProfileConfigurationRemote(browser, huburl));
+				remotedriver.set(browserProfileConfigurationRemote(browser, hubUrl));
 				break;
 			}
 			case Cloud: {
-				remotedriver.set(browserProfileConfigurationCloud(browser, huburl, suiteName));
+				remotedriver.set(browserProfileConfigurationCloud(browser, hubUrl, suiteName));
 				sessionId.set(((RemoteWebDriver) getWebDriver()).getSessionId().toString());
 				break;
 			}
@@ -135,7 +145,7 @@ public class DriverRunner extends Driver{
 			}
 			case Cloud: {
 				ITestResult testStatus = Reporter.getCurrentTestResult();
-				SauceREST client = new SauceREST(huburl.split(":")[0],huburl.split(":")[1]);
+				SauceREST client = new SauceREST(hubUrl.split(":")[0],hubUrl.split(":")[1]);
 
 				if (testStatus.isSuccess()) {
 					client.jobPassed(getSessionId());

@@ -197,6 +197,7 @@
 						<browser>${browser}</browser>
 						<mode>${mode}</mode>
 						<baseurl>${baseurl}</baseurl>
+						<huburl>${huburl}</huburl>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/tests/default/default.xml</suiteXmlFile>

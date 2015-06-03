@@ -11,9 +11,10 @@
 		<listener class-name="wdframework.listeners.RetryListener" />
 	</listeners>
 
-	<parameter name="browser" value="firefox" />
+	<parameter name="browser" value="safari" />
 	<parameter name="mode" value="cloud" />
 	<parameter name="baseurl" value="http://www.google.com/" />
+	<parameter name="huburl" value="eldorajan87:e7e2bd6e-e9ca-4698-8fe7-d52dcdc8281f" />
 
 	<test name="Sample Tests on Cloud" >
 		<classes>
