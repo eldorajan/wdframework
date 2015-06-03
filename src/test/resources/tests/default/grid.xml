@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Sanity" parallel="methods" thread-count="3" >
+<suite name="Sanity" parallel="methods" thread-count="5" >
 
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
@@ -11,7 +11,7 @@
 		<listener class-name="wdframework.listeners.RetryListener" />
 	</listeners>
 
-	<parameter name="browser" value="chrome" />
+	<parameter name="browser" value="firefox" />
 	<parameter name="mode" value="grid" />
 	<parameter name="baseurl" value="http://www.google.com/" />
 	<parameter name="huburl" value="localhost:4444" />

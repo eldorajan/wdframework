@@ -36,46 +36,47 @@ public class Driver {
 
 
 	/**
-	 * 
+	 * browser profile configuration 
 	 * @param browser
 	 * @param ieDriverBinary
 	 * @param chromeDriverBinary
+	 * @param phantomJSDriverBinary
 	 * @return
 	 */
 	public WebDriver browserProfileConfiguration(BrowserType browser,
-			String ieDriverBinary, String chromeDriverBinary){
+			String ieDriverBinary, String chromeDriverBinary, String phantomJSDriverBinary){
 		Logger.info("Starting "+browser+" browser in local configuration");
 		WebDriver driver = null;
 
 		switch (browser) {
 		case Firefox: {            
-			driver = new FirefoxDriver(getDesiredCapabilities(browser));
+			driver = new FirefoxDriver(getDesiredCapabilities(browser,phantomJSDriverBinary));
 			break;
 		}
 		case InternetExplorer: {
 			System.setProperty("webdriver.ie.driver", ieDriverBinary);
-			driver = new InternetExplorerDriver(getDesiredCapabilities(browser));            
+			driver = new InternetExplorerDriver(getDesiredCapabilities(browser,phantomJSDriverBinary));            
 			break;
 		}
 		case Chrome: {
 			System.setProperty("webdriver.chrome.driver", chromeDriverBinary);
-			driver = new ChromeDriver(getDesiredCapabilities(browser));
+			driver = new ChromeDriver(getDesiredCapabilities(browser,phantomJSDriverBinary));
 			break;
 		}
 		case Opera: {
 			System.setProperty("os.name", "windows");
-			driver = new OperaDriver(getDesiredCapabilities(browser));            
+			driver = new OperaDriver(getDesiredCapabilities(browser,phantomJSDriverBinary));            
 			break;
 		}
 		case Safari:
-			driver = new SafariDriver(getDesiredCapabilities(browser));
+			driver = new SafariDriver(getDesiredCapabilities(browser,phantomJSDriverBinary));
 			break;
 		case PhantomJS:
-			driver = new PhantomJSDriver(getDesiredCapabilities(browser));
+			driver = new PhantomJSDriver(getDesiredCapabilities(browser,phantomJSDriverBinary));
 			break;
 		case Android:	
 			try {
-				driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), getDesiredCapabilities(browser));
+				driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), getDesiredCapabilities(browser,phantomJSDriverBinary));
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -100,16 +101,17 @@ public class Driver {
 	 * browser profile configuration for remote
 	 * @param browser
 	 * @param host
+	 * @param phantomJSDriverBinary
 	 * @return
 	 */
-	public RemoteWebDriver browserProfileConfigurationRemote(BrowserType browser, String host){
+	public RemoteWebDriver browserProfileConfigurationRemote(BrowserType browser, String host, String phantomJSDriverBinary){
 		Logger.info("Starting "+browser+" browser in remote configuration");
 
 		RemoteWebDriver driver = null;
 		String huburl = "http://"+host+"/wd/hub";
 
 		try {
-			driver = new RemoteWebDriver(new URL(huburl), getDesiredCapabilities(browser));
+			driver = new RemoteWebDriver(new URL(huburl), getDesiredCapabilities(browser, phantomJSDriverBinary));
 		} catch (Exception e) {
 			Logger.error("Fail to start browser in remote configuration");
 			e.printStackTrace();
@@ -144,10 +146,11 @@ public class Driver {
 	/**
 	 * get desired capabilities
 	 * @param browserType
+	 * @param phantomjsDriver
 	 * @return
 	 */
 	@SuppressWarnings("deprecation")
-	public DesiredCapabilities getDesiredCapabilities(BrowserType browserType) {
+	public DesiredCapabilities getDesiredCapabilities(BrowserType browserType,String phantomjsDriver) {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		switch(browserType) {
 		case InternetExplorer:

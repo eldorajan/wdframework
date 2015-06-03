@@ -78,20 +78,23 @@ public class DriverRunner extends Driver{
 			}
 
 			
-			BrowserType browser = testconfig.getBrowser();
+			
 			String ieDriver = testconfig.getIEDriver();
 			String chromeDriver = testconfig.getChromeDriver();
-			DriverType mode = testconfig.getMode();
-			String hubUrl = testconfig.getHubUrl();
-			String baseUrl = testconfig.getBaseUrl();
+			String ghostDriver = testconfig.getPhantomJsDriver();
+			
+			browser = testconfig.getBrowser();
+			mode = testconfig.getMode();
+			hubUrl = testconfig.getHubUrl();
+			baseUrl = testconfig.getBaseUrl();
 
 			switch (mode) {
 			case Local: {            
-				localdriver.set(browserProfileConfiguration(browser, ieDriver, chromeDriver));
+				localdriver.set(browserProfileConfiguration(browser, ieDriver, chromeDriver, ghostDriver));
 				break;
 			}
 			case Grid: {
-				remotedriver.set(browserProfileConfigurationRemote(browser, hubUrl));
+				remotedriver.set(browserProfileConfigurationRemote(browser, hubUrl, ghostDriver));
 				break;
 			}
 			case Cloud: {
