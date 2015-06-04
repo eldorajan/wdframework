@@ -12,6 +12,7 @@ import java.util.Set;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
 import wdframework.driver.BrowserType;
@@ -342,16 +343,28 @@ public class OneDriveAction{
 			int countBefore = getFileCount(driver);	
 			String[] fileNamesBefore = getAllFileNames(driver);
 			
-			
-			if(driver instanceof FirefoxDriver){
-				clickCreateManageButton(driver, OneDriveConstants.Upload);
-				clickUploadItemType(driver, OneDriveConstants.Upload);
-				fu.autoitFileUploadFirefox(fileName);
+			if(System.getProperty("os.name").contains("Mac")){
+				if(driver instanceof FirefoxDriver){
+					clickCreateManageButton(driver, OneDriveConstants.Upload);
+					clickUploadItemType(driver, OneDriveConstants.Upload);
+					fu.applescriptFileUploadFirefox(fileName);
+				}else if(driver instanceof SafariDriver){
+					clickCreateManageButton(driver, OneDriveConstants.Upload);
+					clickUploadItemType(driver, OneDriveConstants.Upload);
+					fu.applescriptFileUploadSafari(fileName);
+				}
 			}else{
-				clickCreateManageButton(driver, OneDriveConstants.Upload);
-				clickUploadItemType(driver, OneDriveConstants.Files);
-				fu.autoitFileUploadChrome(fileName);
+				if(driver instanceof FirefoxDriver){
+					clickCreateManageButton(driver, OneDriveConstants.Upload);
+					clickUploadItemType(driver, OneDriveConstants.Upload);
+					fu.autoitFileUploadFirefox(fileName);
+				}else{
+					clickCreateManageButton(driver, OneDriveConstants.Upload);
+					clickUploadItemType(driver, OneDriveConstants.Files);
+					fu.autoitFileUploadChrome(fileName);
+				}
 			}
+			
 			driver.navigate().refresh();
 			Thread.sleep(10000);			
 

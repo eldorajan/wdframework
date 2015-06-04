@@ -12,6 +12,7 @@ import java.util.Set;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
 import wdframework.driver.BrowserType;
@@ -263,11 +264,20 @@ public class BoxAction extends Action{
 			clickUploadButton(driver);
 			selectOptionFromUploadButton(driver,BoxConstants.UploadFiles);
 
-			if(driver instanceof FirefoxDriver){
-				fu.autoitFileUploadFirefox(fileName);
+			if(System.getProperty("os.name").contains("Mac")){
+				if(driver instanceof FirefoxDriver){
+					fu.applescriptFileUploadFirefox(fileName);
+				}else if(driver instanceof SafariDriver){
+					fu.applescriptFileUploadSafari(fileName);
+				}
 			}else{
-				fu.autoitFileUploadChrome(fileName);
+				if(driver instanceof FirefoxDriver){
+					fu.autoitFileUploadFirefox(fileName);
+				}else{
+					fu.autoitFileUploadChrome(fileName);
+				}
 			}
+			
 			clickUploadNewFileOkayButton(driver);
 			int countAfter = getFolderFileCount(driver);	
 
