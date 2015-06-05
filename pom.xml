@@ -81,19 +81,20 @@
 			<artifactId>java-client</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.relevantcodes</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>1.4</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/extentreports-1.4.jar</systemPath>
-		</dependency>
+	
 		<dependency>
 			<groupId>net.lightbody.bmp</groupId>
 			<artifactId>browsermob-core-littleproxy</artifactId>
 			<version>2.1.0-beta-1</version>
 		</dependency>
 	<!--  
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/extentreports-1.4.jar</systemPath>
+		</dependency> 
 		<dependency>
 			<groupId>com.thoughtworks.qdox</groupId>
 			<artifactId>qdox</artifactId>
