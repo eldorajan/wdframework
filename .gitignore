@@ -69,7 +69,7 @@ test-output/
 target/
 build/
 bin/
-*.jar
+.metadata/
 .project
 .classpath
 chromedriver.log
@@ -77,3 +77,5 @@ chromedriver.log
 .settings/
 velocity.log
 phantomjs.log
+screenshots/
+*.iml

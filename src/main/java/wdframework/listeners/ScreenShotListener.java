@@ -1,15 +1,27 @@
 package wdframework.listeners;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
-
-
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
+
+import wdframework.logger.Logger;
 
 
 /**
@@ -18,53 +30,70 @@ import org.testng.TestListenerAdapter;
  *
  */
 public class ScreenShotListener extends TestListenerAdapter implements ISuiteListener {
+	String screenShotFolderPath = System.getProperty("user.dir")+File.separator+"screenshots";
 
-
-	File scrFile = null;
-	WebDriver augmentedDriver = null;
-	static File screenShotFolder = null;
-	
 
 	public void onStart(ISuite iSuite){
-		
+
 		try{	
-			/*String host = iSuite.getParameter("mode");
-			if(host.equals("local")){
-				screenShotFolder = new File((System.getProperty("user.dir")+File.separator+"target" + File.separator + "logs"));
-				if(!screenShotFolder.exists()){
-					screenShotFolder.mkdir();
-				}else{
-					deleteDirectory(screenShotFolder);
-					screenShotFolder.mkdir();
-				}
-			}*/
+			File screenShotFolder = new File(screenShotFolderPath);
+			if(screenShotFolder.exists()){
+			}else{
+				screenShotFolder.mkdir();
+			}
 		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
 		}
 	}
-	
+
 	public void onTestSuccess(ITestResult iTestResult){
-		
+
 	}
 
 	public void onTestFailure(ITestResult iTestResult) {
+		File failureImageFile=null;
+		WebDriver webDriver = 
+				(WebDriver) iTestResult.getTestContext().getAttribute("WebDriverInstance");
+		boolean sslMailFlag = Boolean.parseBoolean((String) iTestResult.getTestContext().getAttribute("sslMailFlag"));
 		
+		try {
+			if (!iTestResult.isSuccess()) {
+				File imageFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
+				String failureImageFileName = iTestResult.getMethod().getMethodName()+"_"+new SimpleDateFormat("MM-dd-yyyy_HH-ss").
+						format(new GregorianCalendar().getTime())
+						+ ".png";
+				failureImageFile = new File(screenShotFolderPath+File.separator+failureImageFileName);
+				try {
+					FileUtils.copyFile(imageFile, failureImageFile);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		} catch (Exception e) {
+			Logger.info("Failed to take screenshot");
+		}
 	}
 
 	public void onTestSkipped(ITestResult iTestResult) {
-		
+
 	}
 
 
 	@Override
 	public void onFinish(ITestContext iTestContext){
-		
+
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		// TODO Auto-generated method stub
+		File screenShotFolder = new File(screenShotFolderPath);
+		try {
+			createZipFile(screenShotFolder);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -87,9 +116,71 @@ public class ScreenShotListener extends TestListenerAdapter implements ISuiteLis
 			path.delete();
 		}
 	}
-
-
 	
+	public List<String> getFileNames(File folder) {
+		List<String> fileName = new ArrayList<String>();
+		for (File fileEntry : folder.listFiles()) {
+			if (fileEntry.isDirectory()) {
+				fileName.addAll(getFileNames(fileEntry));
+			} else {
+				if(fileEntry.getName().contains(".png")){
+					fileName.add(fileEntry.getName());
+				}
+			}
+		}
+		return fileName;
+	}
+	
+	public void cleanupFile(String filename) {
+		try {
+			Logger.info("Deleting file " + filename);
+			File file = new File(filename);
+			if(!file.isDirectory()){file.delete();}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	public void createZipFile(File path) throws Exception{
+		File screenShotFolder = new File(screenShotFolderPath);
+		
+		String zipFile = new SimpleDateFormat("MM-dd-yyyy_HH-ss").
+				format(new GregorianCalendar().getTime())+".zip";
+		List<String> sourceFiles = getFileNames(screenShotFolder);
+
+		if(sourceFiles.size()>0){
+			byte[] buffer = new byte[1024];
+			FileOutputStream fout = new FileOutputStream(screenShotFolderPath+File.separator+zipFile);
+			ZipOutputStream zout = new ZipOutputStream(fout);
+
+			for(String sourceFile:sourceFiles){
+				Logger.info("Adding file " + sourceFile);
+				FileInputStream fin = new FileInputStream(screenShotFolderPath+File.separator+sourceFile);
+
+				zout.putNextEntry(new ZipEntry(screenShotFolderPath+File.separator+sourceFile));
+				int length;
+				while((length = fin.read(buffer)) > 0){
+					zout.write(buffer, 0, length);
+				}
+				zout.closeEntry();
+				fin.close();
+				
+			}
+			zout.close();
+			Logger.info("Zip file has been created!!");
+			for(String sourceFile:sourceFiles){cleanupFile(screenShotFolderPath+File.separator+sourceFile);}
+		}else{
+			Logger.info("No image files to be archived!!");
+		}
+		
+		
+	}
+
 }
+
+
+
 
 
